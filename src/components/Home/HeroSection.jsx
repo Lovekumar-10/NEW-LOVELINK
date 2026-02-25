@@ -1,6 +1,4 @@
-
 // Hero section Version 1
-
 
 // import React, { useState, useEffect } from "react";
 // // 1️⃣ Import this at the top
@@ -258,9 +256,6 @@
 
 // export default HeroSection;
 
-
-
-
 // Hero Section Version 2
 // import React, { useState, useEffect } from "react";
 // import { motion, AnimatePresence } from "framer-motion";
@@ -288,7 +283,7 @@
 
 //   return (
 //     <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-white pt-20">
-      
+
 //       {/* 1. ANIMATED BACKGROUND GRADIENT */}
 //       <div className="absolute inset-0 z-0">
 //         <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-pink-100 rounded-full blur-[120px] opacity-60 animate-pulse" />
@@ -301,11 +296,11 @@
 //       <FloatingHeart delay={4} x="40%" />
 
 //       <div className="max-w-7xl mx-auto px-6 w-full grid lg:grid-cols-2 gap-16 items-center z-10">
-        
+
 //         {/* LEFT COLUMN: SOPHISTICATED COPY & GLASS SEARCH */}
-//         <motion.div 
-//           initial={{ opacity: 0, x: -50 }} 
-//           animate={{ opacity: 1, x: 0 }} 
+//         <motion.div
+//           initial={{ opacity: 0, x: -50 }}
+//           animate={{ opacity: 1, x: 0 }}
 //           transition={{ duration: 0.8 }}
 //           className="relative"
 //         >
@@ -325,7 +320,7 @@
 //           </h1>
 
 //           <p className="mt-8 text-lg text-slate-600 max-w-lg leading-relaxed">
-//             Why should finding "The One" feel like a chore? Experience a vibrant community where tradition meets a modern dating vibe. 
+//             Why should finding "The One" feel like a chore? Experience a vibrant community where tradition meets a modern dating vibe.
 //           </p>
 
 //           {/* GLASSMORPHISM SEARCH BOX */}
@@ -333,7 +328,7 @@
 //             <div className="flex-1 flex items-center px-4 py-3 border-r border-slate-100">
 //               <div className="space-y-0.5 w-full">
 //                 <p className="text-[10px] uppercase font-bold text-slate-400 tracking-wider">I am seeking</p>
-//                 <select 
+//                 <select
 //                   className="w-full bg-transparent font-bold text-slate-800 outline-none appearance-none cursor-pointer"
 //                   value={lookingFor}
 //                   onChange={(e) => setLookingFor(e.target.value)}
@@ -368,15 +363,15 @@
 //         {/* RIGHT COLUMN: THE "KNOT" VISUAL COLLAGE */}
 //         <div className="relative">
 //           {/* Central Animated Image */}
-//           <motion.div 
+//           <motion.div
 //             animate={{ y: [0, -15, 0] }}
 //             transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
 //             className="relative z-20 w-full max-w-[320px] mx-auto aspect-[3/4] rounded-[40px] overflow-hidden border-[12px] border-white shadow-2xl rotate-3"
 //           >
-//             <img 
-//               src="https://images.unsplash.com/photo-1511739001486-6bfe10ce785f?q=80&w=1974&auto=format&fit=crop" 
-//               className="w-full h-full object-cover" 
-//               alt="Couples" 
+//             <img
+//               src="https://images.unsplash.com/photo-1511739001486-6bfe10ce785f?q=80&w=1974&auto=format&fit=crop"
+//               className="w-full h-full object-cover"
+//               alt="Couples"
 //             />
 //             <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
 //             <div className="absolute bottom-6 left-6 text-white">
@@ -386,7 +381,7 @@
 //           </motion.div>
 
 //           {/* Playful Floating Badge 1 */}
-//           <motion.div 
+//           <motion.div
 //             whileHover={{ scale: 1.1 }}
 //             className="absolute top-10 -left-12 z-30 bg-white p-4 rounded-2xl shadow-xl flex items-center gap-3 border border-pink-50"
 //           >
@@ -400,7 +395,7 @@
 //           </motion.div>
 
 //           {/* Playful Floating Badge 2 */}
-//           <motion.div 
+//           <motion.div
 //             animate={{ y: [0, 15, 0] }}
 //             transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 1 }}
 //             className="absolute bottom-20 -right-8 z-30 bg-white/90 backdrop-blur-md p-4 rounded-2xl shadow-xl border border-blue-50"
@@ -425,162 +420,157 @@
 
 // export default HeroSection;
 
-
-
 // Hero Section version 3
 
-import React, { useState } from "react";
-import { motion } from "framer-motion";
-import { Search, Heart, Sparkles, Flame, Zap } from "lucide-react";
-import { useNavigate } from "react-router-dom";
+// import React, { useState } from "react";
+// import { motion } from "framer-motion";
+// import { Search, Heart, Sparkles, Flame, Zap } from "lucide-react";
+// import { useNavigate } from "react-router-dom";
 
-const HeroSection = () => {
-  const navigate = useNavigate();
-  const [lookingFor, setLookingFor] = useState("Bride");
+// const HeroSection = () => {
+//   const navigate = useNavigate();
+//   const [lookingFor, setLookingFor] = useState("Bride");
 
-  // Oversized Floating Hearts for that "Playful Magic"
-  const FloatingHeart = ({ delay, x, size, color }) => (
-    <motion.div
-      initial={{ y: "110vh", opacity: 0, rotate: 0 }}
-      animate={{ 
-        y: "-20vh", 
-        opacity: [0, 0.8, 0], 
-        rotate: 360,
-        scale: [0.5, 1.2, 0.8] 
-      }}
-      transition={{ duration: 8, repeat: Infinity, delay, ease: "easeInOut" }}
-      className={`absolute z-0 ${color}`}
-      style={{ left: x }}
-    >
-      <Heart fill="currentColor" size={size} />
-    </motion.div>
-  );
+//   // Oversized Floating Hearts for that "Playful Magic"
+//   const FloatingHeart = ({ delay, x, size, color }) => (
+//     <motion.div
+//       initial={{ y: "110vh", opacity: 0, rotate: 0 }}
+//       animate={{
+//         y: "-20vh",
+//         opacity: [0, 0.8, 0],
+//         rotate: 360,
+//         scale: [0.5, 1.2, 0.8]
+//       }}
+//       transition={{ duration: 8, repeat: Infinity, delay, ease: "easeInOut" }}
+//       className={`absolute z-0 ${color}`}
+//       style={{ left: x }}
+//     >
+//       <Heart fill="currentColor" size={size} />
+//     </motion.div>
+//   );
 
-  return (
-    <section className="relative min-h-screen flex items-center overflow-hidden bg-[#0f172a] text-white">
-      
-      {/* --- THE MAGIC SIDE (Left Background) --- */}
-      <div className="absolute top-0 left-0 w-full lg:w-1/2 h-full z-0 overflow-hidden">
-        {/* Dragon Magic Gradient */}
-        <div className="absolute inset-0 bg-gradient-to-br from-[#1e1b4b] via-[#312e81] to-[#4c1d95] opacity-90" />
-        
-        {/* BIG MAGIC HEARTS */}
-        <FloatingHeart delay={0} x="5%" size={80} color="text-pink-500/20" />
-        <FloatingHeart delay={2} x="25%" size={120} color="text-purple-500/10" />
-        <FloatingHeart delay={4} x="15%" size={60} color="text-indigo-400/20" />
-        <FloatingHeart delay={1} x="40%" size={100} color="text-rose-500/10" />
-      </div>
+//   return (
+//     <section className="relative min-h-screen flex items-center overflow-hidden bg-[#0f172a] text-white">
 
-      {/* --- THE METRICOLLION SIDE (Right Background) --- */}
-      <div className="absolute top-0 right-0 w-1/2 h-full hidden lg:block z-0">
-        <div 
-          className="absolute inset-0 bg-cover bg-center transition-transform duration-[10s] hover:scale-110"
-          style={{ 
-            backgroundImage: `url('https://images.unsplash.com/photo-1583939003579-730e3918a45a?q=80&w=1974&auto=format&fit=crop')`,
-          }}
-        />
-        {/* Cooling Frost Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-l from-transparent via-[#0f172a]/40 to-[#0f172a]" />
-        <div className="absolute inset-0 backdrop-blur-[2px] bg-blue-900/10" />
-      </div>
+//       {/* --- THE MAGIC SIDE (Left Background) --- */}
+//       <div className="absolute top-0 left-0 w-full lg:w-1/2 h-full z-0 overflow-hidden">
+//         {/* Dragon Magic Gradient */}
+//         <div className="absolute inset-0 bg-gradient-to-br from-[#1e1b4b] via-[#312e81] to-[#4c1d95] opacity-90" />
 
-      <div className="max-w-7xl mx-auto px-6 w-full grid lg:grid-cols-2 gap-12 items-center z-10">
-        
-        {/* LEFT CONTENT: DRAGON ENERGY */}
-        <motion.div 
-          initial={{ opacity: 0, x: -100 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 1, ease: "easeOut" }}
-        >
-          <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-white/10 backdrop-blur-xl border border-white/20 mb-8 animate-bounce">
-            <Zap size={18} className="text-yellow-400 fill-yellow-400" />
-            <span className="text-sm font-black uppercase tracking-[3px]">Dragon-Tier Matches</span>
-          </div>
+//         {/* BIG MAGIC HEARTS */}
+//         <FloatingHeart delay={0} x="5%" size={80} color="text-pink-500/20" />
+//         <FloatingHeart delay={2} x="25%" size={120} color="text-purple-500/10" />
+//         <FloatingHeart delay={4} x="15%" size={60} color="text-indigo-400/20" />
+//         <FloatingHeart delay={1} x="40%" size={100} color="text-rose-500/10" />
+//       </div>
 
-          <h1 className="text-7xl lg:text-9xl font-black leading-[0.9] italic uppercase">
-            Feel the <br /> 
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-500 via-purple-400 to-cyan-400 drop-shadow-[0_5px_15px_rgba(244,114,182,0.4)]">
-              Magic.
-            </span>
-          </h1>
+//       {/* --- THE METRICOLLION SIDE (Right Background) --- */}
+//       <div className="absolute top-0 right-0 w-1/2 h-full hidden lg:block z-0">
+//         <div
+//           className="absolute inset-0 bg-cover bg-center transition-transform duration-[10s] hover:scale-110"
+//           style={{
+//             backgroundImage: `url('https://images.unsplash.com/photo-1583939003579-730e3918a45a?q=80&w=1974&auto=format&fit=crop')`,
+//           }}
+//         />
+//         {/* Cooling Frost Overlay */}
+//         <div className="absolute inset-0 bg-gradient-to-l from-transparent via-[#0f172a]/40 to-[#0f172a]" />
+//         <div className="absolute inset-0 backdrop-blur-[2px] bg-blue-900/10" />
+//       </div>
 
-          <p className="mt-8 text-xl text-blue-100/80 max-w-lg font-medium leading-relaxed border-l-4 border-pink-500 pl-6">
-            Where Metricollion precision meets playful destiny. Find your soulmate with the power of the Dragon. 
-          </p>
+//       <div className="max-w-7xl mx-auto px-6 w-full grid lg:grid-cols-2 gap-12 items-center z-10">
 
-          {/* KILLER SEARCH UI */}
-          <div className="mt-12 group relative max-w-md">
-             <div className="absolute -inset-1 bg-gradient-to-r from-pink-600 to-purple-600 rounded-[30px] blur opacity-25 group-hover:opacity-100 transition duration-1000 group-hover:duration-200"></div>
-             <div className="relative flex flex-col md:flex-row bg-[#1e293b] rounded-[25px] p-2 border border-white/10">
-                <div className="flex-1 px-6 py-3">
-                  <p className="text-[10px] font-bold text-pink-400 uppercase tracking-widest mb-1">I'm Hunting for</p>
-                  <select 
-                    className="bg-transparent text-xl font-bold outline-none w-full cursor-pointer text-white"
-                    value={lookingFor}
-                    onChange={(e) => setLookingFor(e.target.value)}
-                  >
-                    <option className="bg-[#1e293b]" value="Bride">My Queen</option>
-                    <option className="bg-[#1e293b]" value="Groom">My King</option>
-                  </select>
-                </div>
-                <button className="bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-400 hover:to-purple-500 text-white px-8 py-4 rounded-[20px] font-black uppercase flex items-center justify-center gap-2 shadow-lg shadow-pink-500/20 transition-all">
-                  Spark Love <Flame size={20} />
-                </button>
-             </div>
-          </div>
-        </motion.div>
+//         {/* LEFT CONTENT: DRAGON ENERGY */}
+//         <motion.div
+//           initial={{ opacity: 0, x: -100 }}
+//           animate={{ opacity: 1, x: 0 }}
+//           transition={{ duration: 1, ease: "easeOut" }}
+//         >
+//           <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-white/10 backdrop-blur-xl border border-white/20 mb-8 animate-bounce">
+//             <Zap size={18} className="text-yellow-400 fill-yellow-400" />
+//             <span className="text-sm font-black uppercase tracking-[3px]">Dragon-Tier Matches</span>
+//           </div>
 
-        {/* RIGHT CONTENT: THE COOLING EFFECT */}
-        <div className="relative hidden lg:flex justify-end">
-           <motion.div 
-            initial={{ scale: 0, rotate: -20 }}
-            animate={{ scale: 1, rotate: -5 }}
-            transition={{ type: "spring", stiffness: 100, delay: 0.5 }}
-            className="relative z-20 w-[380px] h-[500px] bg-white/5 backdrop-blur-md rounded-[50px] border border-white/20 p-4 shadow-2xl overflow-hidden"
-           >
-              <img 
-                src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?q=80&w=1974&auto=format&fit=crop" 
-                className="w-full h-full object-cover rounded-[40px] grayscale hover:grayscale-0 transition-all duration-700"
-                alt="Magic Profile"
-              />
-              <div className="absolute bottom-10 left-10 right-10 p-6 bg-black/40 backdrop-blur-lg rounded-3xl border border-white/10">
-                <div className="flex justify-between items-center">
-                  <div>
-                    <h3 className="text-2xl font-black">Sarah, 24</h3>
-                    <p className="text-sm text-pink-400 font-bold">Dragon Match: 99%</p>
-                  </div>
-                  <div className="w-12 h-12 bg-pink-500 rounded-full flex items-center justify-center animate-pulse">
-                    <Heart fill="white" size={24} />
-                  </div>
-                </div>
-              </div>
-           </motion.div>
+//           <h1 className="text-7xl lg:text-9xl font-black leading-[0.9] italic uppercase">
+//             Feel the <br />
+//             <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-500 via-purple-400 to-cyan-400 drop-shadow-[0_5px_15px_rgba(244,114,182,0.4)]">
+//               Magic.
+//             </span>
+//           </h1>
 
-           {/* Floating "Magic Dust" - Small sparks */}
-           {[...Array(6)].map((_, i) => (
-             <motion.div
-               key={i}
-               animate={{ 
-                 scale: [1, 1.5, 1], 
-                 opacity: [0.3, 0.7, 0.3],
-                 x: [0, Math.random() * 50, 0],
-                 y: [0, Math.random() * -50, 0]
-               }}
-               transition={{ duration: 3 + i, repeat: Infinity }}
-               className="absolute w-2 h-2 bg-cyan-400 rounded-full blur-[2px]"
-               style={{ top: `${20 * i}%`, right: `${10 * i}%` }}
-             />
-           ))}
-        </div>
-      </div>
-    </section>
-  );
-};
+//           <p className="mt-8 text-xl text-blue-100/80 max-w-lg font-medium leading-relaxed border-l-4 border-pink-500 pl-6">
+//             Where Metricollion precision meets playful destiny. Find your soulmate with the power of the Dragon.
+//           </p>
 
-export default HeroSection;
+//           {/* KILLER SEARCH UI */}
+//           <div className="mt-12 group relative max-w-md">
+//              <div className="absolute -inset-1 bg-gradient-to-r from-pink-600 to-purple-600 rounded-[30px] blur opacity-25 group-hover:opacity-100 transition duration-1000 group-hover:duration-200"></div>
+//              <div className="relative flex flex-col md:flex-row bg-[#1e293b] rounded-[25px] p-2 border border-white/10">
+//                 <div className="flex-1 px-6 py-3">
+//                   <p className="text-[10px] font-bold text-pink-400 uppercase tracking-widest mb-1">I'm Hunting for</p>
+//                   <select
+//                     className="bg-transparent text-xl font-bold outline-none w-full cursor-pointer text-white"
+//                     value={lookingFor}
+//                     onChange={(e) => setLookingFor(e.target.value)}
+//                   >
+//                     <option className="bg-[#1e293b]" value="Bride">My Queen</option>
+//                     <option className="bg-[#1e293b]" value="Groom">My King</option>
+//                   </select>
+//                 </div>
+//                 <button className="bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-400 hover:to-purple-500 text-white px-8 py-4 rounded-[20px] font-black uppercase flex items-center justify-center gap-2 shadow-lg shadow-pink-500/20 transition-all">
+//                   Spark Love <Flame size={20} />
+//                 </button>
+//              </div>
+//           </div>
+//         </motion.div>
 
+//         {/* RIGHT CONTENT: THE COOLING EFFECT */}
+//         <div className="relative hidden lg:flex justify-end">
+//            <motion.div
+//             initial={{ scale: 0, rotate: -20 }}
+//             animate={{ scale: 1, rotate: -5 }}
+//             transition={{ type: "spring", stiffness: 100, delay: 0.5 }}
+//             className="relative z-20 w-[380px] h-[500px] bg-white/5 backdrop-blur-md rounded-[50px] border border-white/20 p-4 shadow-2xl overflow-hidden"
+//            >
+//               <img
+//                 src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?q=80&w=1974&auto=format&fit=crop"
+//                 className="w-full h-full object-cover rounded-[40px] grayscale hover:grayscale-0 transition-all duration-700"
+//                 alt="Magic Profile"
+//               />
+//               <div className="absolute bottom-10 left-10 right-10 p-6 bg-black/40 backdrop-blur-lg rounded-3xl border border-white/10">
+//                 <div className="flex justify-between items-center">
+//                   <div>
+//                     <h3 className="text-2xl font-black">Sarah, 24</h3>
+//                     <p className="text-sm text-pink-400 font-bold">Dragon Match: 99%</p>
+//                   </div>
+//                   <div className="w-12 h-12 bg-pink-500 rounded-full flex items-center justify-center animate-pulse">
+//                     <Heart fill="white" size={24} />
+//                   </div>
+//                 </div>
+//               </div>
+//            </motion.div>
 
+//            {/* Floating "Magic Dust" - Small sparks */}
+//            {[...Array(6)].map((_, i) => (
+//              <motion.div
+//                key={i}
+//                animate={{
+//                  scale: [1, 1.5, 1],
+//                  opacity: [0.3, 0.7, 0.3],
+//                  x: [0, Math.random() * 50, 0],
+//                  y: [0, Math.random() * -50, 0]
+//                }}
+//                transition={{ duration: 3 + i, repeat: Infinity }}
+//                className="absolute w-2 h-2 bg-cyan-400 rounded-full blur-[2px]"
+//                style={{ top: `${20 * i}%`, right: `${10 * i}%` }}
+//              />
+//            ))}
+//         </div>
+//       </div>
+//     </section>
+//   );
+// };
 
+// export default HeroSection;
 
 // Hero section version 4
 
@@ -675,7 +665,7 @@ export default HeroSection;
 
 //   return (
 //     <section className="relative min-h-screen w-full flex items-center overflow-hidden" style={{ backgroundColor: "var(--bg-main)" }}>
-      
+
 //       {/* RIGHT SIDE: BORDERLESS DYNAMIC IMAGE */}
 //       <div className="absolute top-0 right-0 w-full lg:w-1/2 h-full z-0">
 //         <AnimatePresence mode="wait">
@@ -704,8 +694,8 @@ export default HeroSection;
 //               return (
 //                 <div key={p} className="flex items-center gap-4">
 //                   <div className="flex flex-col items-center">
-//                     <div 
-//                       className={`w-3 h-3 rounded-full transition-all duration-700 ${isActive || isPast ? 'scale-125' : 'opacity-20'}`} 
+//                     <div
+//                       className={`w-3 h-3 rounded-full transition-all duration-700 ${isActive || isPast ? 'scale-125' : 'opacity-20'}`}
 //                       style={{ backgroundColor: isActive || isPast ? "var(--color-primary)" : "var(--text-primary)" }}
 //                     />
 //                     <span className={`absolute -bottom-6 text-[10px] font-black uppercase tracking-widest ${isActive ? 'opacity-100' : 'opacity-30'}`} style={{ color: "var(--text-primary)" }}>
@@ -754,7 +744,7 @@ export default HeroSection;
 //                 </select>
 //               </div>
 //             </div>
-//             <button 
+//             <button
 //               onClick={handleSearch}
 //               className="m-1 px-12 py-6 text-white rounded-[var(--radius-md)] font-black uppercase tracking-widest flex items-center justify-center gap-3 transition-all active:scale-95 shadow-lg"
 //               style={{ backgroundColor: "var(--color-primary)" }}
@@ -777,8 +767,6 @@ export default HeroSection;
 // };
 
 // export default HeroSection;
-
-
 
 // Hero Section version 5
 
@@ -871,7 +859,7 @@ export default HeroSection;
 //     if (isTypingComplete) {
 //       const timeout = setTimeout(() => {
 //         setCurrentIdx((prev) => (prev + 1) % journeyData.length);
-//       }, 4000); 
+//       }, 4000);
 //       return () => clearTimeout(timeout);
 //     }
 //   }, [isTypingComplete]);
@@ -883,7 +871,7 @@ export default HeroSection;
 
 //   return (
 //     <section className="relative min-h-screen w-full flex items-center overflow-hidden bg-[#050505]">
-      
+
 //       {/* BACKGROUND IMAGE - RIGHT ALIGNED */}
 //       <div className="absolute top-0 right-0 w-full lg:w-1/2 h-full z-0">
 //         <AnimatePresence mode="wait">
@@ -895,8 +883,8 @@ export default HeroSection;
 //             transition={{ duration: 1.5 }}
 //             className="h-full w-full"
 //           >
-//             <img 
-//               src={journeyData[currentIdx].img} 
+//             <img
+//               src={journeyData[currentIdx].img}
 //               className="h-full w-full object-cover grayscale-[10%]"
 //               alt="Love Story"
 //             />
@@ -906,10 +894,10 @@ export default HeroSection;
 //       </div>
 
 //       <div className="max-w-7xl mx-auto px-8 w-full grid lg:grid-cols-2 gap-12 items-center z-10">
-        
+
 //         {/* CONTENT SIDE */}
 //         <motion.div>
-          
+
 //           {/* DYNAMIC TIMELINE */}
 //           <div className="flex items-center gap-6 mb-12">
 //             {phases.map((p, i) => {
@@ -918,7 +906,7 @@ export default HeroSection;
 //               return (
 //                 <div key={p} className="flex items-center gap-4">
 //                   <div className="relative flex flex-col items-center">
-//                     <motion.div 
+//                     <motion.div
 //                       animate={isActive ? { scale: [1, 1.2, 1], borderColor: "#f43f5e" } : {}}
 //                       transition={{ repeat: Infinity, duration: 2 }}
 //                       className={`w-4 h-4 rounded-full border-2 transition-colors duration-500 ${isActive || isPast ? 'bg-rose-500 border-rose-500' : 'border-gray-700 bg-transparent'}`}
@@ -995,7 +983,7 @@ export default HeroSection;
 
 //       {/* FOOTER PROGRESS BAR */}
 //       <div className="absolute bottom-0 left-0 h-1 bg-white/5 w-full">
-//         <motion.div 
+//         <motion.div
 //           key={currentIdx}
 //           initial={{ width: "0%" }}
 //           animate={isTypingComplete ? { width: "100%" } : { width: "0%" }}
@@ -1009,3 +997,280 @@ export default HeroSection;
 // };
 
 // export default HeroSection;
+
+// Hero Section Version 6
+
+import React, { useState } from "react";
+import { motion } from "framer-motion";
+import { ShieldCheck, Users, Activity } from "lucide-react";
+import { Search, Heart, Sparkles, Flame, Zap } from "lucide-react";
+import { useNavigate } from "react-router-dom";
+
+const HeroSection = () => {
+  const navigate = useNavigate();
+  const [lookingFor, setLookingFor] = useState("Bride");
+
+  // Floating Hearts using your Primary Red Theme
+  const FloatingHeart = ({ delay, x, size, color }) => (
+    <motion.div
+      initial={{ y: "110vh", opacity: 0, rotate: 0 }}
+      animate={{
+        y: "-20vh",
+        opacity: [0, 0.8, 0],
+        rotate: 360,
+        scale: [0.5, 1.2, 0.8],
+      }}
+      transition={{ duration: 8, repeat: Infinity, delay, ease: "easeInOut" }}
+      className={`absolute z-0 ${color}`}
+      style={{ left: x }}
+    >
+      <Heart fill="currentColor" size={size} />
+    </motion.div>
+  );
+
+  return (
+    <section className="relative min-h-screen flex items-center overflow-hidden bg-[var(--bg-main)] text-[var(--text-primary)]">
+      {/* --- THE MAGIC SIDE (Background Image & Hearts) --- */}
+      <div className="absolute inset-0 z-0 overflow-hidden">
+        {/* Background Image: Visible on all screens now with better opacity for your theme */}
+        <div
+          className="absolute inset-0 bg-cover bg-center transition-transform duration-[10s] opacity-[0.15] lg:opacity-40"
+          style={{
+            backgroundImage: `url('https://images.unsplash.com/photo-1583939003579-730e3918a45a?q=80&w=1974&auto=format&fit=crop')`,
+          }}
+        />
+
+        {/* Deep Red Magic Gradient Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-primary-2)] via-transparent to-[var(--bg-main)] opacity-90" />
+
+        {/* MAGIC HEARTS in Primary Red */}
+        <FloatingHeart
+          delay={0}
+          x="5%"
+          size={80}
+          color="text-[var(--color-primary)]/10"
+        />
+        <FloatingHeart
+          delay={2}
+          x="25%"
+          size={120}
+          color="text-[var(--color-secondary)]/5"
+        />
+        <FloatingHeart
+          delay={4}
+          x="75%"
+          size={60}
+          color="text-[var(--color-primary)]/10"
+        />
+        <FloatingHeart
+          delay={1}
+          x="40%"
+          size={100}
+          color="text-[var(--color-primary)]/5"
+        />
+      </div>
+
+      <div className="max-w-7xl mx-auto px-6 w-full grid lg:grid-cols-2 gap-12 items-center z-10 pt-20 lg:pt-0">
+        {/* LEFT CONTENT: THE FEEL & TAGLINE */}
+        <motion.div
+          initial={{ opacity: 0, x: -100 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 1, ease: "easeOut" }}
+          className="text-center lg:text-left"
+        >
+          <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-[var(--color-primary)]/10 border border-[var(--color-primary)]/20 mb-8 animate-bounce mx-auto lg:mx-0">
+            <Zap
+              size={18}
+              className="text-[var(--color-primary)] fill-[var(--color-primary)]"
+            />
+            <span className="text-sm font-[var(--fw-bold)] uppercase tracking-[3px] text-[var(--color-secondary)]">
+              Soulmate Finder
+            </span>
+          </div>
+          <h1
+            className="font-[var(--fw-bold)] leading-[1.1] italic uppercase font-[var(--ff-accent)] 
+             /* Fluid Font Size: Min 32px, scales with width, Max 64px */
+             text-[clamp(32px,8vw,64px)] 
+             w-full"
+          >
+            Starting Your <br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--color-primary)] to-[var(--color-secondary)] drop-shadow-md inline-block">
+              Beautiful Journey.
+            </span>
+          </h1>
+
+          <p
+            className="mt-8 
+             /* Fluid Font Size: Min 16px, Max 20px */
+             text-[clamp(16px,2vw,20px)] 
+             text-[var(--text-secondary)] max-w-lg font-[var(--fw-medium)] leading-relaxed border-l-4 border-[var(--color-primary)] pl-6 text-left mx-auto lg:mx-0"
+          >
+            "Sacha rishta, sacha bandhan." Find your perfect match where
+            tradition meets destiny. Experience the magic of Love Link.
+          </p>
+
+          {/* KILLER SEARCH UI */}
+          <div className="mt-12 group relative max-w-md mx-auto lg:mx-0">
+            <div className="absolute -inset-1 bg-[var(--color-primary)] rounded-[12px] blur opacity-10 group-hover:opacity-40 transition duration-1000"></div>
+
+            {/* Changed flex-col to flex-row and added items-center to keep it in one line */}
+            <div className="relative flex flex-row items-center bg-[var(--bg-card)] rounded-[12px] p-1.5 border border-[var(--border)] shadow-[var(--shadow-card)] overflow-hidden">
+              <div className="flex-1 px-3 md:px-6 py-2 text-left min-w-0">
+                <p className="text-[clamp(8px,2vw,10px)] font-bold text-[var(--color-primary)] uppercase tracking-widest mb-0.5 md:mb-1 truncate">
+                  Looking for
+                </p>
+
+                {/* Dynamic font size for "My Queen" using clamp */}
+                <select
+                  className="bg-transparent text-[clamp(14px,4vw,20px)] font-bold outline-none w-full cursor-pointer text-[var(--text-primary)] appearance-none"
+                  value={lookingFor}
+                  onChange={(e) => setLookingFor(e.target.value)}
+                >
+                  <option value="Bride">My Queen</option>
+                  <option value="Groom">My King</option>
+                </select>
+              </div>
+
+              {/* SEARCH BUTTON - Added flex-shrink-0 to prevent squishing */}
+              <button
+                onClick={() => navigate("/MatrimonyFilter")}
+                className="bg-[var(--color-primary)] cursor-pointer text-white px-4 md:px-8 py-2.5 md:py-4 rounded-[8px] font-black uppercase flex items-center justify-center gap-1 md:gap-2 shadow-lg shadow-[var(--color-primary)]/20 transition-all active:scale-95 group/btn overflow-hidden relative flex-shrink-0"
+              >
+                <span className="relative z-10 text-[clamp(10px,2.5vw,14px)] whitespace-nowrap">
+                  Spark Love
+                </span>
+
+                <div className="relative z-10 flex items-center justify-center scale-75 md:scale-100">
+                  {[...Array(4)].map((_, i) => (
+                    <motion.div
+                      key={i}
+                      initial={{ opacity: 0, y: 0, scale: 1 }}
+                      animate={{
+                        opacity: [0, 1, 0],
+                        y: -15,
+                        x: i % 2 === 0 ? 5 : -5,
+                        scale: [0.5, 1.2, 0.2],
+                      }}
+                      transition={{
+                        duration: 1.5,
+                        repeat: Infinity,
+                        delay: i * 0.4,
+                        ease: "easeOut",
+                      }}
+                      className="absolute w-0.5 h-0.5 bg-yellow-200 rounded-full blur-[0.5px]"
+                      style={{ boxShadow: "0 0 4px #fe3b3b" }}
+                    />
+                  ))}
+
+                  <motion.div
+                    animate={{
+                      scale: [1, 1.15, 1],
+                      filter: [
+                        "drop-shadow(0 0 2px #ffecb3)",
+                        "drop-shadow(0 0 12px #fe3b3b)",
+                        "drop-shadow(0 0 2px #ffecb3)",
+                      ],
+                    }}
+                    transition={{
+                      duration: 0.6,
+                      repeat: Infinity,
+                      ease: "easeInOut",
+                    }}
+                  >
+                    <Flame
+                      size={18}
+                      className="md:size-[22px] fill-orange-500 text-yellow-200"
+                    />
+                  </motion.div>
+                </div>
+
+                <div className="absolute inset-0 bg-gradient-to-r from-orange-600/30 via-transparent to-transparent opacity-0 group-hover/btn:opacity-100 transition-opacity duration-500 blur-xl" />
+              </button>
+            </div>
+          </div>
+
+          <div className="flex flex-wrap gap-4 md:gap-8 mt-8 justify-center md:justify-start items-center">
+            {/* Verified Badge */}
+            <div className="flex items-center gap-2 group">
+              <div className="bg-green-100 p-2 rounded-full group-hover:bg-green-200 transition-colors">
+                <ShieldCheck size={20} className="text-green-600" />
+              </div>
+              <span className="text-sm md:text-base font-semibold text-gray-800">
+                100% Verified Profiles
+              </span>
+            </div>
+
+            {/* User Count Badge */}
+            <div className="flex items-center gap-2 group">
+              <div className="bg-blue-100 p-2 rounded-full group-hover:bg-blue-200 transition-colors">
+                <Users size={20} className="text-blue-600" />
+              </div>
+              <span className="text-sm md:text-base font-semibold text-gray-800">
+                500k+ Active Users
+              </span>
+            </div>
+          </div>
+        </motion.div>
+
+        {/* RIGHT CONTENT: THE PROFILE CARD (Now visible on mobile) */}
+        <div className="relative flex justify-center lg:justify-end mt-12 lg:mt-0">
+          <motion.div
+            initial={{ scale: 0, rotate: -20 }}
+            animate={{ scale: 1, rotate: -5 }}
+            transition={{ type: "spring", stiffness: 100, delay: 0.5 }}
+            className="relative z-20 w-[280px] h-[380px] md:w-[380px] md:h-[500px] bg-[var(--bg-card)] rounded-[50px] border border-[var(--border)] p-4 shadow-[var(--shadow-hover)] overflow-hidden"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?q=80&w=1974&auto=format&fit=crop"
+              className="w-full h-full object-cover rounded-[40px]  transition-all duration-700"
+              alt="Magic Profile"
+            />
+            <div className="absolute bottom-4 left-4 right-4 md:bottom-6 md:left-6 md:right-6 p-4 md:p-6 bg-white/80 backdrop-blur-xl rounded-[var(--radius-lg)] border border-white/20 shadow-2xl">
+              <div className="flex justify-between items-center gap-2">
+                <div className="flex-1">
+                  {/* Responsive Name: Mobile h5 (18px) to Desktop h3 (32px) */}
+                  <h3 className="text-[var(--fs-h5)] md:text-[var(--fs-h3)] font-[var(--fw-bold)] text-[var(--text-primary)] leading-tight">
+                    Sarah, 24
+                  </h3>
+
+                  {/* Responsive Subtext: Mobile caption (12px) to Desktop body (16px) */}
+                  <p className="text-[var(--fs-caption)] md:text-[var(--fs-body)] text-[var(--color-primary)] font-[var(--fw-bold)] flex items-center gap-1 uppercase tracking-wider">
+                    <Sparkles size={12} className="hidden md:block" /> 99%
+                    Destiny Match
+                  </p>
+                </div>
+
+                {/* Responsive Icon Circle */}
+                <div className="w-10 h-10 md:w-14 md:h-14 bg-[var(--color-primary)] rounded-full flex items-center justify-center animate-pulse shadow-lg shadow-[var(--color-primary)]/30 shrink-0">
+                  <Heart
+                    fill="white"
+                    size={window.innerWidth < 768 ? 18 : 24}
+                    className="text-white"
+                  />
+                </div>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Floating Magic Dust */}
+          {[...Array(6)].map((_, i) => (
+            <motion.div
+              key={i}
+              animate={{
+                scale: [1, 1.5, 1],
+                opacity: [0.3, 0.7, 0.3],
+                x: [0, Math.random() * 50, 0],
+                y: [0, Math.random() * -50, 0],
+              }}
+              transition={{ duration: 3 + i, repeat: Infinity }}
+              className="absolute w-2 h-2 bg-[var(--color-primary)] rounded-full blur-[1px]"
+              style={{ top: `${20 * i}%`, right: `${10 * i}%` }}
+            />
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default HeroSection;

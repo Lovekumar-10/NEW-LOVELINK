@@ -1,4 +1,5 @@
 
+
 // import { createContext, useContext, useEffect, useState } from "react";
 // import {
 //   createUserWithEmailAndPassword,
@@ -43,7 +44,7 @@
 //       languages: [],
 //       about: "",
 //       bio: "",
-//       // New Fields added for your project
+//       // New Fields added for  project
 //       maritalStatus: "",
 //       diet: "",
 //       smokeDrink: "",
@@ -163,9 +164,9 @@
 //   // ------------------ SEND INTEREST (LIKE) ------------------
 //   // Function to handle sending interest/likes
 //   const sendInterest = async (targetUserId) => {
-//     console.log("🚀 [DEBUG] sendInterest Triggered");
-//     console.log("👤 Current User Logged In:", user?.uid);
-//     console.log("🎯 Target User (Profile being viewed):", targetUserId);
+//     console.log(" [DEBUG] sendInterest Triggered");
+//     console.log(" Current User Logged In:", user?.uid);
+//     console.log(" Target User (Profile being viewed):", targetUserId);
 //     if (!user || !userData) {
 //       console.error("User not authenticated");
 //       return { success: false, error: "Auth required" };
@@ -201,7 +202,7 @@
 //       setUser(currentUser);
 
 //       if (currentUser) {
-//         // 🔥 REAL-TIME FIX: This listens for changes.
+//         // REAL-TIME FIX: This listens for changes.
 //         // When a picture finishes uploading, this triggers and updates the UI automatically.
 //         unsubscribeDoc = onSnapshot(
 //           doc(db, "users", currentUser.uid),
@@ -256,32 +257,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 import { createContext, useContext, useEffect, useState } from "react";
 import {
   createUserWithEmailAndPassword,
@@ -326,7 +301,7 @@ export const AuthProvider = ({ children }) => {
       languages: [],
       about: "",
       bio: "",
-      // New Fields added for your project
+      // New Fields added for  project
       maritalStatus: "",
       diet: "",
       smokeDrink: "",
@@ -446,9 +421,9 @@ export const AuthProvider = ({ children }) => {
   // ------------------ SEND INTEREST (LIKE) ------------------
   // Function to handle sending interest/likes
   const sendInterest = async (targetUserId) => {
-    console.log("🚀 [DEBUG] sendInterest Triggered");
-    console.log("👤 Current User Logged In:", user?.uid);
-    console.log("🎯 Target User (Profile being viewed):", targetUserId);
+    console.log(" [DEBUG] sendInterest Triggered");
+    console.log(" Current User Logged In:", user?.uid);
+    console.log(" Target User (Profile being viewed):", targetUserId);
     if (!user || !userData) {
       console.error("User not authenticated");
       return { success: false, error: "Auth required" };
@@ -484,7 +459,7 @@ export const AuthProvider = ({ children }) => {
       setUser(currentUser);
 
       if (currentUser) {
-        // 🔥 REAL-TIME FIX: This listens for changes.
+        // REAL-TIME FIX: This listens for changes.
         // When a picture finishes uploading, this triggers and updates the UI automatically.
         unsubscribeDoc = onSnapshot(
           doc(db, "users", currentUser.uid),

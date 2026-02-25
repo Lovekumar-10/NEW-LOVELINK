@@ -1,4 +1,3 @@
-
 // import React, { useState, useEffect, useRef } from "react";
 // import { Link, useLocation, useNavigate } from "react-router-dom";
 // import { useAuth } from "../context/AuthContext";
@@ -230,7 +229,188 @@
 
 // export default Navbar;
 
+// import React, { useState } from "react";
+// import { Link, useLocation, useNavigate } from "react-router-dom";
+// import { useAuth } from "../context/AuthContext";
+// import { Menu, X, ChevronRight, LogOut, User, LayoutDashboard } from "lucide-react";
+// import { motion, AnimatePresence } from "framer-motion";
 
+// const Navbar = () => {
+//   const [isOpen, setIsOpen] = useState(false);
+//   const [dropdownOpen, setDropdownOpen] = useState(false);
+//   const { user, logout } = useAuth();
+//   const navigate = useNavigate();
+//   const location = useLocation();
+
+//   const links = [
+//     { name: "Home", path: "/" },
+//     { name: "About", path: "/about" },
+//     { name: "Pricing", path: "/pricing" },
+//     { name: "Find Your Soulmate", path: "/MatrimonyFilter" },
+//   ];
+
+//   const handleLogout = async () => {
+//     await logout();
+//     navigate("/login");
+//     setIsOpen(false);
+//     setDropdownOpen(false);
+//   };
+
+//   // Helper for active link styles using your CSS variables
+//   const getLinkStyle = (path) =>
+//     location.pathname === path
+//       ? "text-white bg-[var(--color-primary)]"
+//       : "text-[var(--text-primary)] hover:text-[var(--color-primary)] hover:bg-[var(--color-primary-2)]";
+
+//   return (
+//     <nav
+//       className="fixed w-full top-0 z-50 border-b bg-[var(--bg-card)] border-[var(--border)] shadow-[var(--shadow-card)]"
+//       style={{ fontFamily: "var(--ff-primary)" }}
+//     >
+//       <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+
+//         {/* Logo / Brand */}
+//         {/* <Link to="/" className="text-[var(--fs-h4)] font-[var(--fw-bold)] text-[var(--color-primary)] tracking-tight">
+//           BRAND
+//         </Link> */}
+
+//         <Link to="/" className="flex items-center">
+//           <img className="h-10 w-auto" src="/logoo.png" alt="Logo" />
+//         </Link>
+
+//         {/* Desktop Links */}
+//         <div className="hidden md:flex items-center gap-2">
+//           {links.map((link) => (
+//             <Link
+//               key={link.name}
+//               to={link.path}
+//               className={`px-4 py-2 rounded-[var(--radius-sm)] transition-all duration-300 font-[var(--fw-medium)] ${getLinkStyle(link.path)}`}
+//             >
+//               {link.name}
+//             </Link>
+//           ))}
+//         </div>
+
+//         {/* Desktop Right Side */}
+//         <div className="hidden md:flex items-center">
+//           {!user ? (
+//             <Link
+//               to="/login"
+//               className="px-6 py-2 bg-[var(--color-primary)] text-white rounded-[var(--radius-md)] hover:brightness-110 transition shadow-md"
+//             >
+//               Login
+//             </Link>
+//           ) : (
+//             <div className="relative">
+//               <button
+//                 onClick={() => setDropdownOpen(!dropdownOpen)}
+//                 className="w-10 h-10 rounded-full  cursor-pointer bg-[var(--color-primary)] text-white flex items-center justify-center font-bold border-2 border-[var(--color-base)]"
+//               >
+//                 {user.displayName ? user.displayName[0].toUpperCase() : user.email[0].toUpperCase()}
+//               </button>
+
+//               <AnimatePresence>
+//                 {dropdownOpen && (
+//                   <motion.div
+//                     initial={{ opacity: 0, y: 10 }}
+//                     animate={{ opacity: 1, y: 0 }}
+//                     exit={{ opacity: 0, y: 10 }}
+//                     className="absolute right-0 mt-3 w-48 bg-white border border-[var(--border)] shadow-[var(--shadow-hover)] rounded-[var(--radius-md)] overflow-hidden z-50"
+//                   >
+//                     <Link to="/connection" onClick={() => setDropdownOpen(false)} className="flex items-center gap-2 px-4 py-3 hover:bg-[var(--bg-soft)] text-[var(--text-primary)]">
+//                       <LayoutDashboard size={18} /> Dashboard
+//                     </Link>
+//                     <Link to="/profile" onClick={() => setDropdownOpen(false)} className="flex items-center gap-2 px-4 py-3 hover:bg-[var(--bg-soft)] text-[var(--text-primary)]">
+//                       <User size={18} /> Profile
+//                     </Link>
+//                     <button onClick={handleLogout} className="w-full flex items-center gap-2 px-4 py-3 hover:bg-red-50 text-[var(--error)] font-bold border-t">
+//                       <LogOut size={18} /> Logout
+//                     </button>
+//                   </motion.div>
+//                 )}
+//               </AnimatePresence>
+//             </div>
+//           )}
+//         </div>
+
+//         {/* Mobile Toggle Button */}
+//         <button
+//           onClick={() => setIsOpen(!isOpen)}
+//           className="md:hidden p-2 text-[var(--text-primary)] hover:bg-[var(--bg-soft)] rounded-full transition"
+//         >
+//           {isOpen ? <X size={28} /> : <Menu size={28} />}
+//         </button>
+//       </div>
+
+//       {/* Mobile Menu Overlay */}
+//       <AnimatePresence>
+//         {isOpen && (
+//           <motion.div
+//             initial={{ x: "100%" }}
+//             animate={{ x: 0 }}
+//             exit={{ x: "100%" }}
+//             transition={{ type: "spring", damping: 25, stiffness: 200 }}
+//             className="md:hidden fixed inset-0 top-16 bg-[var(--bg-main)] z-40 flex flex-col p-6"
+//           >
+//             <div className="flex flex-col gap-3">
+//               <p className="text-[var(--text-light)] text-xs uppercase tracking-widest font-bold mb-2">Navigation</p>
+//               {links.map((link) => (
+//                 <Link
+//                   key={link.name}
+//                   to={link.path}
+//                   onClick={() => setIsOpen(false)}
+//                   className={`flex justify-between items-center py-4 px-5 rounded-[var(--radius-md)] text-[var(--fs-h6)] font-[var(--fw-semibold)] transition-all ${getLinkStyle(link.path)}`}
+//                 >
+//                   {link.name} <ChevronRight size={18} />
+//                 </Link>
+//               ))}
+//             </div>
+
+//             <div className="mt-auto pb-10">
+//               {!user ? (
+//                 <Link
+//                   to="/login"
+//                   onClick={() => setIsOpen(false)}
+//                   className="w-full block py-4 text-center bg-[var(--color-primary)] text-white rounded-[var(--radius-md)] font-bold text-lg shadow-lg"
+//                 >
+//                   Login to Account
+//                 </Link>
+//               ) : (
+//                 <div className="bg-[var(--bg-card)] p-4 rounded-[var(--radius-lg)] border border-[var(--border)] shadow-sm">
+//                   <div className="flex items-center gap-3 mb-4 p-2">
+//                     <div className="w-12 h-12 rounded-full bg-[var(--color-primary)] text-white flex items-center justify-center text-xl font-bold">
+//                       {user.email[0].toUpperCase()}
+//                     </div>
+//                     <div>
+//                       <p className="font-bold text-[var(--text-primary)]">{user.displayName || "User"}</p>
+//                       <p className="text-xs text-[var(--text-light)]">{user.email}</p>
+//                     </div>
+//                   </div>
+//                   <div className="grid grid-cols-2 gap-2">
+//                     <Link to="/dashboard" onClick={() => setIsOpen(false)} className="flex items-center justify-center gap-2 py-3 bg-[var(--bg-soft)] rounded-[var(--radius-sm)] text-sm font-medium">
+//                       Dashboard
+//                     </Link>
+//                     <Link to="/profile" onClick={() => setIsOpen(false)} className="flex items-center justify-center gap-2 py-3 bg-[var(--bg-soft)] rounded-[var(--radius-sm)] text-sm font-medium">
+//                       Profile
+//                     </Link>
+//                   </div>
+//                   <button
+//                     onClick={handleLogout}
+//                     className="w-full mt-3 py-3 text-center text-[var(--error)] font-bold border-t border-[var(--border)] pt-4 flex items-center justify-center gap-2"
+//                   >
+//                     <LogOut size={18} /> Logout
+//                   </button>
+//                 </div>
+//               )}
+//             </div>
+//           </motion.div>
+//         )}
+//       </AnimatePresence>
+//     </nav>
+//   );
+// };
+
+// export default Navbar;
 
 
 
@@ -238,15 +418,35 @@
 import React, { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
-import { Menu, X, ChevronRight, LogOut, User, LayoutDashboard } from "lucide-react";
+// Added Globe icon
+import {
+  Menu,
+  X,
+  ChevronRight,
+  LogOut,
+  User,
+  LayoutDashboard,
+  Globe,
+  ChevronDown,
+} from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [langDropdownOpen, setLangDropdownOpen] = useState(false); // New state for language
+  const [currentLang, setCurrentLang] = useState("EN"); // Default language
+
   const { user, logout } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
+
+  const languages = [
+    { code: "EN", name: "English" },
+    { code: "ES", name: "Español" },
+    { code: "HI", name: "हिन्दी" },
+    { code: "FR", name: "Français" },
+  ];
 
   const links = [
     { name: "Home", path: "/" },
@@ -262,28 +462,21 @@ const Navbar = () => {
     setDropdownOpen(false);
   };
 
-  // Helper for active link styles using your CSS variables
-  const getLinkStyle = (path) => 
-    location.pathname === path 
-      ? "text-white bg-[var(--color-primary)]" 
+  const getLinkStyle = (path) =>
+    location.pathname === path
+      ? "text-white bg-[var(--color-primary)]"
       : "text-[var(--text-primary)] hover:text-[var(--color-primary)] hover:bg-[var(--color-primary-2)]";
 
   return (
-    <nav 
+    <nav
       className="fixed w-full top-0 z-50 border-b bg-[var(--bg-card)] border-[var(--border)] shadow-[var(--shadow-card)]"
       style={{ fontFamily: "var(--ff-primary)" }}
     >
       <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-        
-        {/* Logo / Brand */}
-        {/* <Link to="/" className="text-[var(--fs-h4)] font-[var(--fw-bold)] text-[var(--color-primary)] tracking-tight">
-          BRAND
-        </Link> */}
-
+        {/* Logo */}
         <Link to="/" className="flex items-center">
           <img className="h-10 w-auto" src="/logoo.png" alt="Logo" />
         </Link>
-
 
         {/* Desktop Links */}
         <div className="hidden md:flex items-center gap-2">
@@ -299,7 +492,48 @@ const Navbar = () => {
         </div>
 
         {/* Desktop Right Side */}
-        <div className="hidden md:flex items-center">
+        <div className="hidden md:flex items-center gap-4">
+          {/* --- LANGUAGE DROP-DOWN START --- */}
+          <div className="relative">
+            <button
+              onClick={() => setLangDropdownOpen(!langDropdownOpen)}
+              className="flex items-center gap-1 px-3 py-2 text-[var(--text-primary)] hover:bg-[var(--bg-soft)] rounded-[var(--radius-sm)] transition-all"
+            >
+              <Globe size={18} className="text-[var(--color-primary)]" />
+              <span className="text-sm font-bold">{currentLang}</span>
+              <ChevronDown
+                size={14}
+                className={`transition-transform ${langDropdownOpen ? "rotate-180" : ""}`}
+              />
+            </button>
+
+            <AnimatePresence>
+              {langDropdownOpen && (
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: 10 }}
+                  className="absolute right-0 mt-2 w-32 bg-white border border-[var(--border)] shadow-xl rounded-[var(--radius-md)] overflow-hidden z-50"
+                >
+                  {languages.map((lang) => (
+                    <button
+                      key={lang.code}
+                      onClick={() => {
+                        setCurrentLang(lang.code);
+                        setLangDropdownOpen(false);
+                        // Add your translation logic here (e.g., i18n.changeLanguage(lang.code))
+                      }}
+                      className="w-full text-left px-4 py-2 text-sm hover:bg-[var(--bg-soft)] text-[var(--text-primary)] transition-colors"
+                    >
+                      {lang.name}
+                    </button>
+                  ))}
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
+          {/* --- LANGUAGE DROP-DOWN END --- */}
+
           {!user ? (
             <Link
               to="/login"
@@ -311,26 +545,39 @@ const Navbar = () => {
             <div className="relative">
               <button
                 onClick={() => setDropdownOpen(!dropdownOpen)}
-                className="w-10 h-10 rounded-full  cursor-pointer bg-[var(--color-primary)] text-white flex items-center justify-center font-bold border-2 border-[var(--color-base)]"
+                className="w-10 h-10 rounded-full cursor-pointer bg-[var(--color-primary)] text-white flex items-center justify-center font-bold border-2 border-[var(--color-base)]"
               >
-                {user.displayName ? user.displayName[0].toUpperCase() : user.email[0].toUpperCase()}
+                {user.displayName
+                  ? user.displayName[0].toUpperCase()
+                  : user.email[0].toUpperCase()}
               </button>
 
               <AnimatePresence>
                 {dropdownOpen && (
-                  <motion.div 
+                  <motion.div
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: 10 }}
                     className="absolute right-0 mt-3 w-48 bg-white border border-[var(--border)] shadow-[var(--shadow-hover)] rounded-[var(--radius-md)] overflow-hidden z-50"
                   >
-                    <Link to="/connection" onClick={() => setDropdownOpen(false)} className="flex items-center gap-2 px-4 py-3 hover:bg-[var(--bg-soft)] text-[var(--text-primary)]">
+                    <Link
+                      to="/connection"
+                      onClick={() => setDropdownOpen(false)}
+                      className="flex items-center gap-2 px-4 py-3 hover:bg-[var(--bg-soft)] text-[var(--text-primary)]"
+                    >
                       <LayoutDashboard size={18} /> Dashboard
                     </Link>
-                    <Link to="/profile" onClick={() => setDropdownOpen(false)} className="flex items-center gap-2 px-4 py-3 hover:bg-[var(--bg-soft)] text-[var(--text-primary)]">
+                    <Link
+                      to="/profile"
+                      onClick={() => setDropdownOpen(false)}
+                      className="flex items-center gap-2 px-4 py-3 hover:bg-[var(--bg-soft)] text-[var(--text-primary)]"
+                    >
                       <User size={18} /> Profile
                     </Link>
-                    <button onClick={handleLogout} className="w-full flex items-center gap-2 px-4 py-3 hover:bg-red-50 text-[var(--error)] font-bold border-t">
+                    <button
+                      onClick={handleLogout}
+                      className="w-full flex items-center gap-2 px-4 py-3 hover:bg-red-50 text-[var(--error)] font-bold border-t"
+                    >
                       <LogOut size={18} /> Logout
                     </button>
                   </motion.div>
@@ -352,7 +599,7 @@ const Navbar = () => {
       {/* Mobile Menu Overlay */}
       <AnimatePresence>
         {isOpen && (
-          <motion.div 
+          <motion.div
             initial={{ x: "100%" }}
             animate={{ x: 0 }}
             exit={{ x: "100%" }}
@@ -360,7 +607,9 @@ const Navbar = () => {
             className="md:hidden fixed inset-0 top-16 bg-[var(--bg-main)] z-40 flex flex-col p-6"
           >
             <div className="flex flex-col gap-3">
-              <p className="text-[var(--text-light)] text-xs uppercase tracking-widest font-bold mb-2">Navigation</p>
+              <p className="text-[var(--text-light)] text-xs uppercase tracking-widest font-bold mb-2">
+                Navigation
+              </p>
               {links.map((link) => (
                 <Link
                   key={link.name}
@@ -371,6 +620,56 @@ const Navbar = () => {
                   {link.name} <ChevronRight size={18} />
                 </Link>
               ))}
+
+              {/* Mobile Language Selector */}
+              {/* Mobile Language Selector (Dropdown Style) */}
+              <div className="mt-4 border-t border-[var(--border)] pt-4">
+                <p className="text-[var(--text-light)] text-xs uppercase tracking-widest font-bold mb-2">
+                  Language
+                </p>
+                <div className="relative">
+                  <button
+                    onClick={() => setLangDropdownOpen(!langDropdownOpen)}
+                    className="w-full flex items-center justify-between py-4 px-5 bg-white border border-[var(--border)] rounded-[var(--radius-md)] text-[var(--fs-h6)] font-[var(--fw-semibold)]"
+                  >
+                    <div className="flex items-center gap-3">
+                      <Globe
+                        size={20}
+                        className="text-[var(--color-primary)]"
+                      />
+                      {languages.find((l) => l.code === currentLang)?.name}
+                    </div>
+                    <ChevronDown
+                      size={18}
+                      className={`transition-transform ${langDropdownOpen ? "rotate-180" : ""}`}
+                    />
+                  </button>
+
+                  <AnimatePresence>
+                    {langDropdownOpen && (
+                      <motion.div
+                        initial={{ opacity: 0, height: 0 }}
+                        animate={{ opacity: 1, height: "auto" }}
+                        exit={{ opacity: 0, height: 0 }}
+                        className="overflow-hidden bg-[var(--bg-soft)] rounded-b-[var(--radius-md)] border-x border-b border-[var(--border)]"
+                      >
+                        {languages.map((lang) => (
+                          <button
+                            key={lang.code}
+                            onClick={() => {
+                              setCurrentLang(lang.code);
+                              setLangDropdownOpen(false);
+                            }}
+                            className="w-full text-left px-12 py-3 hover:bg-[var(--color-primary-2)] text-[var(--text-primary)] transition-colors border-t border-[var(--border)]"
+                          >
+                            {lang.name}
+                          </button>
+                        ))}
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+              </div>
             </div>
 
             <div className="mt-auto pb-10">
@@ -389,15 +688,27 @@ const Navbar = () => {
                       {user.email[0].toUpperCase()}
                     </div>
                     <div>
-                      <p className="font-bold text-[var(--text-primary)]">{user.displayName || "User"}</p>
-                      <p className="text-xs text-[var(--text-light)]">{user.email}</p>
+                      <p className="font-bold text-[var(--text-primary)]">
+                        {user.displayName || "User"}
+                      </p>
+                      <p className="text-xs text-[var(--text-light)]">
+                        {user.email}
+                      </p>
                     </div>
                   </div>
                   <div className="grid grid-cols-2 gap-2">
-                    <Link to="/dashboard" onClick={() => setIsOpen(false)} className="flex items-center justify-center gap-2 py-3 bg-[var(--bg-soft)] rounded-[var(--radius-sm)] text-sm font-medium">
+                    <Link
+                      to="/dashboard"
+                      onClick={() => setIsOpen(false)}
+                      className="flex items-center justify-center gap-2 py-3 bg-[var(--bg-soft)] rounded-[var(--radius-sm)] text-sm font-medium"
+                    >
                       Dashboard
                     </Link>
-                    <Link to="/profile" onClick={() => setIsOpen(false)} className="flex items-center justify-center gap-2 py-3 bg-[var(--bg-soft)] rounded-[var(--radius-sm)] text-sm font-medium">
+                    <Link
+                      to="/profile"
+                      onClick={() => setIsOpen(false)}
+                      className="flex items-center justify-center gap-2 py-3 bg-[var(--bg-soft)] rounded-[var(--radius-sm)] text-sm font-medium"
+                    >
                       Profile
                     </Link>
                   </div>
@@ -418,3 +729,5 @@ const Navbar = () => {
 };
 
 export default Navbar;
+
+

@@ -212,3 +212,20 @@ main {
 
 
 
+
+
+
+/* Hide the Google Translate bar at the top */
+.goog-te-banner-frame.skiptranslate {
+    display: none !important;
+}
+body {
+    top: 0px !important;
+}
+/* Hide the "Powered by Google" text if you want it super clean */
+.goog-logo-link {
+    display: none !important;
+}
+.goog-te-gadget {
+    color: transparent !important;
+}
