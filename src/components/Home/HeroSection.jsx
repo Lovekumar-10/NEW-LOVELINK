@@ -1000,6 +1000,9 @@
 
 // Hero Section Version 6
 
+
+
+
 import React, { useState } from "react";
 import { useEffect } from "react";
 import { motion } from "framer-motion";
@@ -1088,7 +1091,7 @@ const HeroSection = () => {
           transition={{ duration: 1, ease: "easeOut" }}
           className="text-center lg:text-left"
         >
-          <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-[var(--color-primary)]/10 border border-[var(--color-primary)]/20 mb-8 animate-bounce mx-auto lg:mx-0">
+          <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-[var(--color-primary)]/50 border border-[var(--color-primary)] mb-8 animate-bounce mx-auto lg:mx-0">
             <Zap
               size={18}
               className="text-[var(--color-primary)] fill-[var(--color-primary)]"

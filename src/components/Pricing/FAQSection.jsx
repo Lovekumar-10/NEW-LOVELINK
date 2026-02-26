@@ -108,10 +108,6 @@ const FAQSection = () => {
     answer: "If a scheduled payment fails, our system will automatically attempt to retry the charge three times over the course of 14 days. You will receive an email notification for each failed attempt. During this 'grace period,' your access remains active, but we recommend updating your payment method promptly to avoid service suspension." 
   },
   { 
-    question: "Do you offer discounts for non-profits or students?", 
-    answer: "Yes, we are proud to support education and social impact initiatives. Verified students and registered non-profit organizations are eligible for a 40% discount on all annual plans. Please reach out to our billing support team with your official documentation to receive your unique discount code." 
-  },
-  { 
     question: "How do I change or update my credit card info?", 
     answer: "You can update your payment details at any time by navigating to Settings > Billing > Payment Methods. Simply click 'Edit' or 'Add New' to enter your new card information. Once verified, all future recurring charges will be applied to the newly selected default payment method." 
   }

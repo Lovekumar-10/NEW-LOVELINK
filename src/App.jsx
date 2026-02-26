@@ -14,6 +14,7 @@ import RefundPolicy from "./pages/General/RefundPolicy";
 import Disclaimer from "./pages/General/Disclaimer";
 import SafetyProtocal from "./pages/General/SafetyProtocal";
 import MatrimonyFilter from "./components/connection/MatrimonyFilter"
+import Story from "./pages/General/SuccessStory";
 
 // Profile Nested
 import ProfileLayout from "./pages/private/ProfileLayout";
@@ -43,6 +44,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/pricing" element={<Pricing />} />
+          <Route path="/success stories" element={<Story />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/privacy" element={<PrivacyPolicy />} />

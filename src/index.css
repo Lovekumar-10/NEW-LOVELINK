@@ -1,27 +1,6 @@
 @import "tailwindcss";
 
 :root {
-  /* Primary Colors */
-  /* --color-primary: #1e3b8ae4;
-  --color-primary-2: #1e3b8a3f;
-  --color-secondary: #0f172a;
-  --color-accent: #f867e7;
-  --color-accent-base: #204bc3;
-  --color-base: #d5b074; */
-
-  /* Backgrounds */
-  /* --bg-main: #f8fafc;
-  --bg-card: #ffffff;
-  --bg-soft: #eff6ff; */
-
-  /* Text */
-  /* --text-primary: #0f172a;
-  --text-secondary: #475569;
-  --text-light: #94a3b8; */
-
-
-
-
 
   /* Primary Colors - Deep Red Theme */
   --color-primary: #fe3b3b;
