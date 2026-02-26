@@ -320,11 +320,11 @@ const PrivacyPolicy = () => {
             At{" "}
             <span className="font-semibold text-[var(--color-primary)]">
               LoveLink
-            </span>
+            </span>{" "}
             is an online matrimonial portal commited to constantly providing
             matrimonial services (“services”). This Privacy Statement applies to
             all the matrimonial services operated under
-            Artoflivingmatrimony.org. Since we are strongly committed to
+            LoveLink. Since we are strongly committed to
             protecting your right to privacy, we have drawn out a privacy
             statement to explain how we collect and use the information you
             provide to us. You acknowledge that you are disclosing information
@@ -333,7 +333,7 @@ const PrivacyPolicy = () => {
             information by us in accordance with this Privacy Policy. If you do
             not agree with the use of your information as described herein,
             please do not use or access this website. This electronic platform
-            is being operated and owned by www.artoflivingmatrimony.org This
+            is being operated and owned by LoveLink  This
             Privacy Policy is published on web site to protect user’s privacy
             and is directly linked to our Terms and Conditions/Terms of Use.
           </p>
@@ -347,7 +347,7 @@ const PrivacyPolicy = () => {
             User identity. This includes both any online and off-line
             transactions using credit/debit cards or such other payment
             instruments. Any negligence on the part of the user in safeguarding
-            this information will not render, www.artoflivingmatrimony.org
+            this information will not render, LoveLink 
             liable in any manner. We assume no responsibility/liability for the
             improper use of credit/debit cards information or other
             transactional data resulting from user negligence.

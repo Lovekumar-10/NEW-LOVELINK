@@ -1000,15 +1000,20 @@
 
 // Hero Section Version 6
 
+
+
 import React, { useState } from "react";
+import { useEffect } from "react";
 import { motion } from "framer-motion";
 import { ShieldCheck, Users, Activity } from "lucide-react";
 import { Search, Heart, Sparkles, Flame, Zap } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import HeroSectionSkeleton from "../Skeleton/HeroSectionSkeleton"; // adjust path
 
 const HeroSection = () => {
   const navigate = useNavigate();
   const [lookingFor, setLookingFor] = useState("Bride");
+ const [loading, setLoading] = useState(true);
 
   // Floating Hearts using your Primary Red Theme
   const FloatingHeart = ({ delay, x, size, color }) => (
@@ -1028,6 +1033,15 @@ const HeroSection = () => {
     </motion.div>
   );
 
+
+  
+  // Simulate loading (replace with real fetch if needed)
+  useEffect(() => {
+    const timer = setTimeout(() => setLoading(false), 1000); // 1.5s loading
+    return () => clearTimeout(timer);
+  }, []);
+
+ if (loading) return <HeroSectionSkeleton />;
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden bg-[var(--bg-main)] text-[var(--text-primary)]">
       {/* --- THE MAGIC SIDE (Background Image & Hearts) --- */}
