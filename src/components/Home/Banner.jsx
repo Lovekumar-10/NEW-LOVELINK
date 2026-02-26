@@ -4,7 +4,7 @@
 // const CTASection = () => {
 //   const handleRedirect = () => {
 //     // Redirects user to the registration page
-//     window.location.href = '/register'; 
+//     window.location.href = '/register';
 //   };
 
 //   const containerVariants = {
@@ -23,7 +23,7 @@
 //   return (
 //     /* Removed overflow-hidden and rounded corners from main section */
 //     <section className="w-full" style={{ backgroundColor: 'var(--bg-main)' }}>
-//       <motion.div 
+//       <motion.div
 //         variants={containerVariants}
 //         initial="hidden"
 //         whileInView="visible"
@@ -33,8 +33,8 @@
 //         {/* Left: Image (Kept rounded for modern look, but container is square) */}
 //         <motion.div variants={itemVariants} className="relative group">
 //           <div className="relative overflow-hidden rounded-[10px] shadow-2xl aspect-video md:aspect-auto border-none">
-//             <img 
-//               src="https://images.unsplash.com/photo-1543269865-cbf427effbad?auto=format&fit=crop&q=80&w=1000" 
+//             <img
+//               src="https://images.unsplash.com/photo-1543269865-cbf427effbad?auto=format&fit=crop&q=80&w=1000"
 //               alt="Connect"
 //               className="w-full h-full object-cover transform group-hover:scale-105 transition duration-700"
 //             />
@@ -43,7 +43,7 @@
 
 //         {/* Right: Content Section */}
 //         <div className="flex flex-col space-y-8 text-center md:text-left">
-//           <motion.h2 
+//           <motion.h2
 //             variants={itemVariants}
 //             className="text-4xl md:text-5xl lg:text-6xl font-black leading-tight"
 //             style={{ color: 'var(--text-primary)' }}
@@ -52,37 +52,37 @@
 //             <span style={{ color: 'var(--color-primary)' }}>nearby girls and guys!</span>
 //           </motion.h2>
 
-//           <motion.p 
+//           <motion.p
 //             variants={itemVariants}
 //             className="text-lg md:text-xl max-w-xl mx-auto md:mx-0"
 //             style={{ color: 'var(--text-secondary)' }}
 //           >
-//             Join our vibrant community today. Whether you are looking for networking, 
+//             Join our vibrant community today. Whether you are looking for networking,
 //             friendship, or more, we bridge the gap.
 //           </motion.p>
 
-//           {/* <motion.div 
+//           {/* <motion.div
 //             variants={itemVariants}
 //             className="flex flex-col sm:flex-row gap-5 justify-center md:justify-start"
 //           >
 //             {/* BUTTONS REMAIN CAPSULES */}
-//             {/* <CapsuleBtn 
-//               text="Add Profile" 
-//               isPrimary={true} 
-//               onClick={handleRedirect} 
+//             {/* <CapsuleBtn
+//               text="Add Profile"
+//               isPrimary={true}
+//               onClick={handleRedirect}
 //             />
-//             <CapsuleBtn 
-//               text="Start Search" 
-//               isPrimary={false} 
-//               onClick={handleRedirect} 
+//             <CapsuleBtn
+//               text="Start Search"
+//               isPrimary={false}
+//               onClick={handleRedirect}
 //             /> */}
-//           {/* </motion.div> */} 
+//           {/* </motion.div> */}
 //         </div>
 //       </motion.div>
 
 //       {/* Footer Banner - Made Square (Removed rounded-[3rem]) */}
 //       <div className="w-full">
-//         <motion.div 
+//         <motion.div
 //           initial={{ opacity: 0 }}
 //           whileInView={{ opacity: 1 }}
 //           className="w-full p-10 md:p-16 flex flex-col md:flex-row justify-between items-center gap-8 shadow-inner"
@@ -117,7 +117,7 @@
 //       onClick={onClick}
 //       /* This remains rounded-full for the 100% circular effect */
 //       className="relative px-10 py-4 rounded-full font-bold border-2 overflow-hidden transition-all duration-300 w-full sm:w-auto cursor-pointer flex items-center justify-center uppercase tracking-wide text-sm"
-//       style={{ 
+//       style={{
 //         borderColor: 'var(--color-primary)',
 //         color: isPrimary ? '#FFFFFF' : 'var(--color-primary)',
 //         backgroundColor: isPrimary ? 'var(--color-primary)' : 'transparent'
@@ -144,13 +144,8 @@
 
 // export default CTASection;
 
-
-
-
-
-
-import React from 'react';
-import { motion } from 'framer-motion';
+import React from "react";
+import { motion } from "framer-motion";
 
 const Banner = () => {
   const containerVariants = {
@@ -163,12 +158,12 @@ const Banner = () => {
 
   const itemVariants = {
     hidden: { opacity: 0, y: 30 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
   };
 
   return (
-    <section className="w-full" style={{ backgroundColor: 'var(--bg-main)' }}>
-      <motion.div 
+    <section className="w-full" style={{ backgroundColor: "var(--bg-main)" }}>
+      <motion.div
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"
@@ -178,8 +173,8 @@ const Banner = () => {
         {/* Left: Image */}
         <motion.div variants={itemVariants} className="relative group">
           <div className="relative overflow-hidden rounded-[10px] shadow-2xl aspect-video md:aspect-auto border-none">
-            <img 
-              src="https://images.unsplash.com/photo-1543269865-cbf427effbad?auto=format&fit=crop&q=80&w=1000" 
+            <img
+              src="https://images.unsplash.com/photo-1722952908609-4b57e23da1ee?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
               alt="Connect"
               className="w-full h-full object-cover transform group-hover:scale-105 transition duration-700"
             />
@@ -188,43 +183,49 @@ const Banner = () => {
 
         {/* Right: Content Section */}
         <div className="flex flex-col space-y-8 text-center md:text-left">
-          <motion.h2 
+          <motion.h2
             variants={itemVariants}
             className="text-4xl md:text-5xl lg:text-6xl font-black leading-tight"
-            style={{ color: 'var(--text-primary)' }}
+            style={{ color: "var(--text-primary)" }}
           >
-            We put you in touch with <br />
-            <span style={{ color: 'var(--color-primary)' }}>nearby girls and guys!</span>
+            We find your dream partner,
+            <br />
+            <span style={{ color: "var(--color-primary)" }}>
+              {" "}
+              Make meaningful connections.
+            </span>
           </motion.h2>
 
-          <motion.p 
+          <motion.p
             variants={itemVariants}
             className="text-lg md:text-xl max-w-xl mx-auto md:mx-0"
-            style={{ color: 'var(--text-secondary)' }}
+            style={{ color: "var(--text-secondary)" }}
           >
-            Join our vibrant community today. Whether you are looking for networking, 
-            friendship, or more, we bridge the gap.
+            Connecting noble families and compatible souls. Discover verified
+            profiles rooted in tradition, shared values, and the promise of a
+            lifetime together.
           </motion.p>
         </div>
       </motion.div>
 
       {/* Simplified Footer Banner (No Button) */}
       <div className="w-full">
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           className="w-full py-12 px-6 flex flex-col items-center justify-center gap-4 border-t border-b border-opacity-10"
-          style={{ 
-            backgroundColor: 'var(--color-primary)',
-            borderColor: 'rgba(255,255,255,0.1)'
+          style={{
+            backgroundColor: "var(--color-primary)",
+            borderColor: "rgba(255,255,255,0.1)",
           }}
         >
           <span className="text-[#D4AF37] uppercase tracking-[0.3em] text-sm font-bold">
             The Art of Connection
           </span>
           <h3 className="text-3xl md:text-5xl font-light text-white text-center italic">
-            Where meaningful stories <span className="font-bold not-italic text-white">begin.</span>
+            Where meaningful stories{" "}
+            <span className="font-bold not-italic text-white">begin.</span>
           </h3>
           <div className="h-1 w-20 bg-[#D4AF37] mt-4 opacity-50" />
         </motion.div>
@@ -234,4 +235,3 @@ const Banner = () => {
 };
 
 export default Banner;
-

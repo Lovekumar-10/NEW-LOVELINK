@@ -10,14 +10,16 @@ import Chat from "./pages/private/Chat";
 import Connection from "./pages/private/ConnectionPage";
 import PrivacyPolicy from "./pages/General/Privacy.jsx";
 import TermsAndConditions from "./pages/General/TermsAndConditions";
-
-
+import RefundPolicy from "./pages/General/RefundPolicy";
+import Disclaimer from "./pages/General/Disclaimer";
+import SafetyProtocal from "./pages/General/SafetyProtocal";
 import MatrimonyFilter from "./components/connection/MatrimonyFilter"
 
 // Profile Nested
 import ProfileLayout from "./pages/private/ProfileLayout";
 import ProfilePreview from "./components/ProfileStruc/Profile/ProfilePreview";
 import ProfileEditForm from "./components/ProfileStruc/Profile/ProfileEditForm";
+
 
 // Layouts
 import PublicLayout from "./components/layouts/PublicLayout";
@@ -46,6 +48,9 @@ function App() {
           <Route path="/privacy" element={<PrivacyPolicy />} />
           <Route path="/terms" element={<TermsAndConditions/>} />
           <Route path="/MatrimonyFilter" element={<MatrimonyFilter />} />
+          <Route path="/refund-policy" element={<RefundPolicy />} />
+          <Route path="/be-safe-online" element={<SafetyProtocal />} />
+          <Route path="/disclaimer" element={<Disclaimer />} />
         
 
           {/* Private Pages */}

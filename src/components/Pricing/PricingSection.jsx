@@ -233,7 +233,6 @@ const PricingSection = () => {
       features: [
         { text: "10 Profile Views Only", included: true },
         { text: "100 Connect Requests", included: true },
-        { text: "25 Contact Numbers", included: true },
         { text: "Chat with Matches", included: true },
         { text: "AI Match Suggestions", included: false },
         { text: "Astro Matchmaking", included: false },
@@ -250,7 +249,6 @@ const PricingSection = () => {
       features: [
         { text: "Unlimited Profile Views", included: true },
         { text: "500 Connect Requests", included: true },
-        { text: "250 Contact Numbers", included: true },
         { text: "AI Match Suggestions", included: true },
         { text: "Priority Profile Boost", included: true },
         { text: "Guna Milan (Astro Score)", included: true },

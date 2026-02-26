@@ -451,7 +451,7 @@ const Navbar = () => {
   const links = [
     { name: "Home", path: "/" },
     { name: "About", path: "/about" },
-    { name: "Pricing", path: "/pricing" },
+    { name: "Our Plans", path: "/pricing" },
     { name: "Find Your Soulmate", path: "/MatrimonyFilter" },
   ];
 

@@ -1000,8 +1000,6 @@
 
 // Hero Section Version 6
 
-
-
 import React, { useState } from "react";
 import { useEffect } from "react";
 import { motion } from "framer-motion";
@@ -1013,7 +1011,7 @@ import HeroSectionSkeleton from "../Skeleton/HeroSectionSkeleton"; // adjust pat
 const HeroSection = () => {
   const navigate = useNavigate();
   const [lookingFor, setLookingFor] = useState("Bride");
- const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(true);
 
   // Floating Hearts using your Primary Red Theme
   const FloatingHeart = ({ delay, x, size, color }) => (
@@ -1033,15 +1031,13 @@ const HeroSection = () => {
     </motion.div>
   );
 
-
-  
   // Simulate loading (replace with real fetch if needed)
   useEffect(() => {
     const timer = setTimeout(() => setLoading(false), 1000); // 1.5s loading
     return () => clearTimeout(timer);
   }, []);
 
- if (loading) return <HeroSectionSkeleton />;
+  if (loading) return <HeroSectionSkeleton />;
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden bg-[var(--bg-main)] text-[var(--text-primary)]">
       {/* --- THE MAGIC SIDE (Background Image & Hearts) --- */}
@@ -1119,8 +1115,9 @@ const HeroSection = () => {
              text-[clamp(16px,2vw,20px)] 
              text-[var(--text-secondary)] max-w-lg font-[var(--fw-medium)] leading-relaxed border-l-4 border-[var(--color-primary)] pl-6 text-left mx-auto lg:mx-0"
           >
-            "Sacha rishta, sacha bandhan." Find your perfect match where
-            tradition meets destiny. Experience the magic of Love Link.
+           Meet Aisha and Rahul — two hearts
+            brought together by chance, their journey started with a smile and a
+            shared story. Experience the magic of Love Link.
           </p>
 
           {/* KILLER SEARCH UI */}
@@ -1235,7 +1232,7 @@ const HeroSection = () => {
             className="relative z-20 w-[280px] h-[380px] md:w-[380px] md:h-[500px] bg-[var(--bg-card)] rounded-[50px] border border-[var(--border)] p-4 shadow-[var(--shadow-hover)] overflow-hidden"
           >
             <img
-              src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?q=80&w=1974&auto=format&fit=crop"
+              src="https://images.unsplash.com/photo-1697684458782-aa963fc73bcc?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
               className="w-full h-full object-cover rounded-[40px]  transition-all duration-700"
               alt="Magic Profile"
             />
@@ -1244,7 +1241,7 @@ const HeroSection = () => {
                 <div className="flex-1">
                   {/* Responsive Name: Mobile h5 (18px) to Desktop h3 (32px) */}
                   <h3 className="text-[var(--fs-h5)] md:text-[var(--fs-h3)] font-[var(--fw-bold)] text-[var(--text-primary)] leading-tight">
-                    Sarah, 24
+                     Aisha and Rahul 
                   </h3>
 
                   {/* Responsive Subtext: Mobile caption (12px) to Desktop body (16px) */}

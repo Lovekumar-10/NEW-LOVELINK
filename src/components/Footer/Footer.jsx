@@ -1,478 +1,178 @@
+
+
 // import React from "react";
+// import { Link } from "react-router-dom";
 // import {
 //   Facebook,
 //   Twitter,
 //   Instagram,
 //   Linkedin,
-//   Youtube,
-//   Mail,
+//   MapPin,
 //   Phone,
-//   Send,
+//   Mail,
+//   ChevronRight,
 // } from "lucide-react";
 
 // const Footer = () => {
 //   const currentYear = new Date().getFullYear();
 
+//   // Simple array-based data management for cleaner JSX
+//   const navigationLinks = [
+//     { text: "Home", to: "/" },
+//     { text: "About Us", to: "/about" },
+//     { text: "Member Login", to: "/login" },
+//     { text: "Success Stories", to: "/" },
+//     { text: "Membership Plans", to: "/pricing" },
+//     { text: "Contact Us", to: "/contact" },
+//   ];
+
+//   const legalLinks = [
+//     { text: "Refund Policy", to: "/refund-policy" },
+//     { text: "Disclaimer", to: "/disclaimer" },
+//     { text: "Privacy Policy", to: "/privacy" },
+//     { text: "Terms & Conditions", to: "/terms" },
+//     { text: "Safety Protocol", to: "/be-safe-online" },
+//   ];
+
+//   const socialIcons = [
+//     { icon: <Facebook size={18} />, link: "#" },
+//     { icon: <Twitter size={18} />, link: "#" },
+//     { icon: <Instagram size={18} />, link: "#" },
+//     { icon: <Linkedin size={18} />, link: "#" },
+//   ];
+
 //   return (
 //     <footer
-//       className="w-full pt-20 pb-10"
+//       className="w-full pt-20 pb-10 text-white"
 //       style={{
 //         background: `linear-gradient(135deg, var(--color-secondary) 0%, var(--color-primary) 100%)`,
 //         fontFamily: "var(--ff-primary)",
 //       }}
 //     >
 //       <div className="max-w-7xl mx-auto px-6 md:px-10 lg:px-20">
-//         {/* Top Grid Section */}
 //         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-20">
 //           {/* Column 1: Brand Identity */}
 //           <div className="space-y-8">
 //             <div className="flex items-center gap-3">
-//               <div
-//                 className="logo-container lub-dub-animation w-14 h-14 overflow-hidden rotate-3 border-2 shadow-lg cursor-pointer transition-all duration-300"
-//                 style={{
-//                   borderRadius: "var(--radius-md)",
-//                   borderColor: "rgba(255,255,255,0.1)",
-//                   position: "relative",
-//                 }}
+//               <Link
+//                 to="/"
+//                 className="relative w-14 h-14 overflow-hidden rotate-3 border-2 border-white/10 shadow-lg rounded-xl transition-transform hover:rotate-0 duration-300"
 //               >
-//                 {/* The Image */}
 //                 <img
 //                   src="/logoo.png"
-//                   alt="LoveLink Logo"
+//                   alt="Logo"
 //                   className="w-full h-full object-cover"
 //                 />
-
-//                 {/* New Cool Effect: Animated Shine Overlay */}
-//                 <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/20 to-transparent -translate-x-full hover:animate-[shimmer_2s_infinite] pointer-events-none" />
-//               </div>
-//               <h2
-//                 className="font-black uppercase tracking-tighter text-white"
-//                 style={{ fontSize: "var(--fs-h4)" }}
-//               >
+//                 <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/20 to-transparent -translate-x-full hover:animate-[shimmer_2s_infinite]" />
+//               </Link>
+//               <h2 className="font-black uppercase tracking-tighter text-2xl">
 //                 Love<span style={{ color: "var(--color-base)" }}>Link</span>
 //               </h2>
 //             </div>
-
-//             <p
-//               className="leading-relaxed opacity-80"
-//               style={{ fontSize: "var(--fs-small)", color: "var(--bg-soft)" }}
-//             >
-//               Connecting hearts through LoveLink. Discover meaningful
-//               relationships and your perfect match within our trusted global
+//             <p className="leading-relaxed opacity-80 text-sm">
+//               Connecting families through LoveLink. Discover meaningful,
+//               lifelong relationships within our trusted global matrimonial
 //               community.
 //             </p>
-
 //             <div className="flex items-center gap-4">
-//               <SocialIcon icon={<Facebook size={18} />} link="#" />
-//               <SocialIcon icon={<Twitter size={18} />} link="#" />
-//               <SocialIcon icon={<Instagram size={18} />} link="#" />
-//               <SocialIcon icon={<Linkedin size={18} />} link="#" />
+//               {socialIcons.map((soc, i) => (
+//                 <a
+//                   key={i}
+//                   href={soc.link}
+//                   className="w-10 h-10 border border-white/10 flex items-center justify-center bg-white/5 rounded-lg text-white/60 hover:bg-[var(--color-accent)] hover:text-white hover:border-transparent transition-all"
+//                 >
+//                   {soc.icon}
+//                 </a>
+//               ))}
 //             </div>
 //           </div>
 
 //           {/* Column 2: Navigation */}
 //           <div className="lg:ml-10">
-//             <h3
-//               className="mb-8 uppercase tracking-[0.2em] text-white"
-//               style={{
-//                 fontSize: "var(--fs-caption)",
-//                 fontWeight: "var(--fw-bold)",
-//               }}
-//             >
+//             <h3 className="mb-8 uppercase tracking-[0.2em] font-bold text-xs border-b border-white/10 pb-2 w-fit">
 //               Navigation
 //             </h3>
 //             <ul className="space-y-4">
-//               <FooterLink text="Our Philosophy" href="/about" />
-//               <FooterLink text="Success Stories" href="/stories" />
-//               <FooterLink text="Membership Plans" href="/pricing" />
-//               <FooterLink text="Safety Protocol" href="/safety" />
+//               {navigationLinks.map((link, i) => (
+//                 <li key={i}>
+//                   <Link
+//                     to={link.to}
+//                     className="flex items-center gap-2 text-white/60 hover:text-white hover:translate-x-2 transition-all duration-300 text-sm group"
+//                   >
+//                     <ChevronRight
+//                       size={12}
+//                       className="opacity-0 group-hover:opacity-100 text-[var(--color-accent)] transition-all"
+//                     />
+//                     {link.text}
+//                   </Link>
+//                 </li>
+//               ))}
 //             </ul>
 //           </div>
 
-//           {/* Column 3: Discovery */}
-//           <div>
-//             <h3
-//               className="mb-8 uppercase tracking-[0.2em] text-white"
-//               style={{
-//                 fontSize: "var(--fs-caption)",
-//                 fontWeight: "var(--fw-bold)",
-//               }}
-//             >
-//               Discovery
+//           {/* Column 3: Important Links */}
+//           <div className="lg:ml-5">
+//             <h3 className="mb-8 uppercase tracking-[0.2em] font-bold text-xs border-b border-white/10 pb-2 w-fit">
+//               Important Links
 //             </h3>
 //             <ul className="space-y-4">
-//               <FooterLink text="New Members" href="/members" />
-//               <FooterLink text="Verified Profiles" href="/vip" />
-//               <FooterLink text="Match Feed" href="/feed" />
-//               <FooterLink text="Advanced Search" href="/search" />
+//               {legalLinks.map((link, i) => (
+//                 <li key={i}>
+//                   <Link
+//                     to={link.to}
+//                     className="flex items-center gap-2 text-white/60 hover:text-white hover:translate-x-2 transition-all duration-300 text-sm group"
+//                   >
+//                     <ChevronRight
+//                       size={12}
+//                       className="opacity-0 group-hover:opacity-100 text-[var(--color-accent)] transition-all"
+//                     />
+//                     {link.text}
+//                   </Link>
+//                 </li>
+//               ))}
 //             </ul>
 //           </div>
 
-//           {/* Column 4: Newsletter */}
-//           <div
-//             className="p-6"
-//             style={{
-//               backgroundColor: "rgba(255,255,255,0.03)",
-//               borderRadius: "var(--radius-lg)",
-//             }}
-//           >
-//             <h3
-//               className="mb-4 text-white"
-//               style={{ fontSize: "var(--fs-h6)", fontWeight: "var(--fw-bold)" }}
-//             >
-//               Stay in the Loop
+//           {/* Column 4: Stay in Touch */}
+//           <div className="space-y-6">
+//             <h3 className="mb-8 uppercase tracking-[0.2em] font-bold text-xs border-b border-white/10 pb-2 w-fit">
+//               Stay in Touch
 //             </h3>
-//             <p
-//               className="mb-6 opacity-60"
-//               style={{ fontSize: "var(--fs-caption)", color: "var(--bg-soft)" }}
-//             >
-//               Get dating tips and success stories delivered weekly.
-//             </p>
-
-//             <div className="relative group">
-//               <input
-//                 type="email"
-//                 placeholder="Email address"
-//                 className="w-full px-5 py-4 border bg-white/5 text-white focus:outline-none transition-all"
-//                 style={{
-//                   borderRadius: "var(--radius-md)",
-//                   borderColor: "rgba(255,255,255,0.1)",
-//                   fontSize: "var(--fs-caption)",
-//                 }}
-//               />
-//               <button
-//                 className="absolute right-2 top-2 p-2.5 text-white transition-all cursor-pointer flex items-center justify-center shadow-lg"
-//                 style={{
-//                   backgroundColor: "var(--color-accent)",
-//                   borderRadius: "var(--radius-sm)",
-//                 }}
-//               >
-//                 <Send size={16} />
-//               </button>
-//             </div>
-//           </div>
-//         </div>
-
-//         {/* Bottom Bar */}
-//         <div
-//           className="pt-10 border-t flex flex-col md:flex-row justify-between items-center gap-8"
-//           style={{ borderColor: "rgba(255,255,255,0.1)" }}
-//         >
-//           {/* Bottom Left: Your Picture & Copyright */}
-//           <div className="flex items-center gap-5">
-//             <div
-//               className="w-12 h-12 rounded-full border-2 overflow-hidden shadow-inner"
-//               style={{ borderColor: "var(--color-accent)" }}
-//             >
-//               <img
-//                 src="/logoo.png"
-//                 alt="LoveLink Creator"
-//                 className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500"
-//               />
-//             </div>
-//             <div className="flex flex-col">
-//               <div
-//                 className="uppercase tracking-widest font-black"
-//                 style={{
-//                   fontSize: "var(--fs-caption)",
-//                   color: "rgba(255,255,255,0.6)",
-//                 }}
-//               >
-//                 LoveLink Global
-//               </div>
-//               <div
-//                 className="font-medium opacity-30"
-//                 style={{ fontSize: "var(--fs-caption)", color: "white" }}
-//               >
-//                 © {currentYear} All rights reserved.
-//               </div>
-//             </div>
-//           </div>
-
-//           <div
-//             className="flex items-center gap-8 uppercase tracking-widest opacity-40"
-//             style={{
-//               fontSize: "var(--fs-caption)",
-//               fontWeight: "var(--fw-bold)",
-//               color: "white",
-//             }}
-//           >
-//             <a
-//               href="#"
-//               className="hover:text-[var(--color-accent)] transition-colors"
-//             >
-//               Privacy
-//             </a>
-//             <a
-//               href="#"
-//               className="hover:text-[var(--color-accent)] transition-colors"
-//             >
-//               Terms
-//             </a>
-//             <Youtube
-//               size={20}
-//               className="ml-4 cursor-pointer hover:text-red-500 transition-colors"
-//             />
-//           </div>
-//         </div>
-//       </div>
-//     </footer>
-//   );
-// };
-
-// /* --- Helpers --- */
-
-// const FooterLink = ({ text, href }) => (
-//   <li>
-//     <a
-//       href={href}
-//       className="transition-all duration-300 hover:translate-x-2 block flex items-center gap-2 group"
-//       style={{
-//         fontSize: "var(--fs-small)",
-//         color: "rgba(255,255,255,0.6)",
-//         fontWeight: "var(--fw-medium)",
-//       }}
-//     >
-//       <span
-//         className="w-0 h-[1px] group-hover:w-3 transition-all duration-300"
-//         style={{ backgroundColor: "var(--color-accent)" }}
-//       ></span>
-//       <span className="group-hover:text-white">{text}</span>
-//     </a>
-//   </li>
-// );
-
-// const SocialIcon = ({ icon, link }) => (
-//   <a
-//     href={link}
-//     className="w-10 h-10 border transition-all flex items-center justify-center bg-white/5"
-//     style={{
-//       borderRadius: "var(--radius-sm)",
-//       borderColor: "rgba(255,255,255,0.1)",
-//       color: "rgba(255,255,255,0.6)",
-//     }}
-//     onMouseEnter={(e) => {
-//       e.currentTarget.style.backgroundColor = "var(--color-accent)";
-//       e.currentTarget.style.color = "#fff";
-//       e.currentTarget.style.borderColor = "var(--color-accent)";
-//     }}
-//     onMouseLeave={(e) => {
-//       e.currentTarget.style.backgroundColor = "rgba(255, 255, 255, 0.05)";
-//       e.currentTarget.style.color = "rgba(255, 255, 255, 0.6)";
-//       e.currentTarget.style.borderColor = "rgba(255, 255, 255, 0.1)";
-//     }}
-//   >
-//     {icon}
-//   </a>
-// );
-
-// export default Footer;
-
-// import React from "react";
-// import {
-//   Facebook,
-//   Twitter,
-//   Instagram,
-//   Linkedin,
-//   Youtube,
-//   Mail,
-//   Phone,
-//   Send,
-// } from "lucide-react";
-
-// const Footer = () => {
-//   const currentYear = new Date().getFullYear();
-
-//   // Helper to prevent page jump on # links
-//   const handleStay = (e) => {
-//     if (e.currentTarget.getAttribute('href') === "#") {
-//       e.preventDefault();
-//     }
-//   };
-
-//   return (
-//     <footer
-//       className="w-full pt-20 pb-10"
-//       style={{
-//         background: `linear-gradient(135deg, var(--color-secondary) 0%, var(--color-primary) 100%)`,
-//         fontFamily: "var(--ff-primary)",
-//       }}
-//     >
-//       <div className="max-w-7xl mx-auto px-6 md:px-10 lg:px-20">
-//         {/* Top Grid Section */}
-//         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-20">
-//           {/* Column 1: Brand Identity */}
-//           <div className="space-y-8">
-//             <div className="flex items-center gap-3">
-//               <div
-//                 className="logo-container lub-dub-animation w-14 h-14 overflow-hidden rotate-3 border-2 shadow-lg cursor-pointer transition-all duration-300"
-//                 style={{
-//                   borderRadius: "var(--radius-md)",
-//                   borderColor: "rgba(255,255,255,0.1)",
-//                   position: "relative",
-//                 }}
-//               >
-//                 <img
-//                   src="/logoo.png"
-//                   alt="LoveLink Logo"
-//                   className="w-full h-full object-cover"
+//             <div className="space-y-5 text-white/80 text-sm">
+//               <div className="flex gap-3">
+//                 <MapPin
+//                   size={20}
+//                   className="text-[var(--color-accent)] shrink-0"
 //                 />
-//                 <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/20 to-transparent -translate-x-full hover:animate-[shimmer_2s_infinite] pointer-events-none" />
+//                 <p className="leading-snug text-white/70">
+//                   A-24, 2nd Floor, <br />
+//                   Near Rajouri Garden Metro Station, <br />
+//                   Rajouri Garden, New Delhi 110027
+//                 </p>
 //               </div>
-//               <h2
-//                 className="font-black uppercase tracking-tighter text-white"
-//                 style={{ fontSize: "var(--fs-h4)" }}
-//               >
-//                 Love<span style={{ color: "var(--color-base)" }}>Link</span>
-//               </h2>
-//             </div>
-
-//             <p
-//               className="leading-relaxed opacity-80"
-//               style={{ fontSize: "var(--fs-small)", color: "var(--bg-soft)" }}
-//             >
-//               Connecting hearts through LoveLink. Discover meaningful
-//               relationships and your perfect match within our trusted global
-//               community.
-//             </p>
-
-//             <div className="flex items-center gap-4">
-//               <SocialIcon icon={<Facebook size={18} />} link="#" />
-//               <SocialIcon icon={<Twitter size={18} />} link="#" />
-//               <SocialIcon icon={<Instagram size={18} />} link="#" />
-//               <SocialIcon icon={<Linkedin size={18} />} link="#" />
-//             </div>
-//           </div>
-
-//           {/* Column 2: Navigation - All Links Reset to # */}
-//           <div className="lg:ml-10">
-//             <h3
-//               className="mb-8 uppercase tracking-[0.2em] text-white"
-//               style={{
-//                 fontSize: "var(--fs-caption)",
-//                 fontWeight: "var(--fw-bold)",
-//               }}
-//             >
-//               Navigation
-//             </h3>
-//             <ul className="space-y-4">
-//               <FooterLink text="Our Philosophy" href="#" onClick={handleStay} />
-//               <FooterLink text="Success Stories" href="#" onClick={handleStay} />
-//               <FooterLink text="Membership Plans" href="#" onClick={handleStay} />
-//               <FooterLink text="Safety Protocol" href="#" onClick={handleStay} />
-//             </ul>
-//           </div>
-
-//           {/* Column 3: Discovery - All Links Reset to # */}
-//           <div>
-//             <h3
-//               className="mb-8 uppercase tracking-[0.2em] text-white"
-//               style={{
-//                 fontSize: "var(--fs-caption)",
-//                 fontWeight: "var(--fw-bold)",
-//               }}
-//             >
-//               Discovery
-//             </h3>
-//             <ul className="space-y-4">
-//               <FooterLink text="New Members" href="#" onClick={handleStay} />
-//               <FooterLink text="Verified Profiles" href="#" onClick={handleStay} />
-//               <FooterLink text="Match Feed" href="#" onClick={handleStay} />
-//               <FooterLink text="Advanced Search" href="#" onClick={handleStay} />
-//             </ul>
-//           </div>
-
-//           {/* Column 4: Newsletter */}
-//           <div
-//             className="p-6"
-//             style={{
-//               backgroundColor: "rgba(255,255,255,0.03)",
-//               borderRadius: "var(--radius-lg)",
-//             }}
-//           >
-//             <h3
-//               className="mb-4 text-white"
-//               style={{ fontSize: "var(--fs-h6)", fontWeight: "var(--fw-bold)" }}
-//             >
-//               Stay in the Loop
-//             </h3>
-//             <p
-//               className="mb-6 opacity-60"
-//               style={{ fontSize: "var(--fs-caption)", color: "var(--bg-soft)" }}
-//             >
-//               Get dating tips and success stories delivered weekly.
-//             </p>
-
-//             <div className="relative group">
-//               <input
-//                 type="email"
-//                 placeholder="Email address"
-//                 className="w-full px-5 py-4 border bg-white/5 text-white focus:outline-none transition-all"
-//                 style={{
-//                   borderRadius: "var(--radius-md)",
-//                   borderColor: "rgba(255,255,255,0.1)",
-//                   fontSize: "var(--fs-caption)",
-//                 }}
-//               />
-//               <button
-//                 className="absolute right-2 top-2 p-2.5 text-white transition-all cursor-pointer flex items-center justify-center shadow-lg hover:brightness-110 active:scale-95"
-//                 style={{
-//                   backgroundColor: "var(--color-accent)",
-//                   borderRadius: "var(--radius-sm)",
-//                 }}
-//               >
-//                 <Send size={16} />
-//               </button>
+//               <div className="flex items-center gap-3 text-white/70">
+//                 <Phone size={18} className="text-[var(--color-accent)]" />
+//                 +91-9900038442
+//               </div>
+//               <div className="flex items-center gap-3 text-white/70">
+//                 <Mail size={18} className="text-[var(--color-accent)]" />
+//                 info@lovelink.org
+//               </div>
 //             </div>
 //           </div>
 //         </div>
-
 //         {/* Bottom Bar */}
-//         <div
-//           className="pt-10 border-t flex flex-col md:flex-row justify-between items-center gap-8"
-//           style={{ borderColor: "rgba(255,255,255,0.1)" }}
-//         >
-//           <div className="flex items-center gap-5">
-//             <div
-//               className="w-12 h-12 rounded-full border-2 overflow-hidden shadow-inner"
-//               style={{ borderColor: "var(--color-accent)" }}
-//             >
-//               <img
-//                 src="/logoo.png"
-//                 alt="LoveLink Creator"
-//                 className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500"
-//               />
-//             </div>
-//             <div className="flex flex-col">
-//               <div
-//                 className="uppercase tracking-widest font-black"
-//                 style={{
-//                   fontSize: "var(--fs-caption)",
-//                   color: "rgba(255,255,255,0.6)",
-//                 }}
-//               >
-//                 LoveLink Global
-//               </div>
-//               <div
-//                 className="font-medium opacity-30"
-//                 style={{ fontSize: "var(--fs-caption)", color: "white" }}
-//               >
-//                 © {currentYear} All rights reserved.
-//               </div>
-//             </div>
-//           </div>
+//         <div className="pt-10 border-t border-white/10 flex flex-col items-center justify-center text-center gap-4">
 
-//           <div
-//             className="flex items-center gap-8 uppercase tracking-widest opacity-40"
-//             style={{
-//               fontSize: "var(--fs-caption)",
-//               fontWeight: "var(--fw-bold)",
-//               color: "white",
-//             }}
-//           >
-//             <a href="#" onClick={handleStay} className="hover:text-[var(--color-accent)] transition-colors">Privacy</a>
-//             <a href="#" onClick={handleStay} className="hover:text-[var(--color-accent)] transition-colors">Terms</a>
-//             <Youtube size={20} className="ml-4 cursor-pointer hover:text-red-500 transition-colors" />
+
+//           {/* Text Details */}
+//           <div className="flex flex-col items-center">
+//             <span className="uppercase tracking-widest font-black text-white/60 text-[10px]">
+//               LoveLink Global
+//             </span>
+//             <span className="text-white/30 text-xs font-medium">
+//               © {new Date().getFullYear()} All rights reserved.
+//             </span>
 //           </div>
 //         </div>
 //       </div>
@@ -480,54 +180,10 @@
 //   );
 // };
 
-// /* --- Helpers --- */
-
-// const FooterLink = ({ text, href, onClick }) => (
-//   <li>
-//     <a
-//       href={href}
-//       onClick={onClick}
-//       className="transition-all duration-300 hover:translate-x-2 block flex items-center gap-2 group"
-//       style={{
-//         fontSize: "var(--fs-small)",
-//         color: "rgba(255,255,255,0.6)",
-//         fontWeight: "var(--fw-medium)",
-//       }}
-//     >
-//       <span
-//         className="w-0 h-[1px] group-hover:w-3 transition-all duration-300"
-//         style={{ backgroundColor: "var(--color-accent)" }}
-//       ></span>
-//       <span className="group-hover:text-white">{text}</span>
-//     </a>
-//   </li>
-// );
-
-// const SocialIcon = ({ icon, link }) => (
-//   <a
-//     href={link}
-//     className="w-10 h-10 border transition-all flex items-center justify-center bg-white/5 cursor-pointer"
-//     style={{
-//       borderRadius: "var(--radius-sm)",
-//       borderColor: "rgba(255,255,255,0.1)",
-//       color: "rgba(255,255,255,0.6)",
-//     }}
-//     onMouseEnter={(e) => {
-//       e.currentTarget.style.backgroundColor = "var(--color-accent)";
-//       e.currentTarget.style.color = "#fff";
-//       e.currentTarget.style.borderColor = "var(--color-accent)";
-//     }}
-//     onMouseLeave={(e) => {
-//       e.currentTarget.style.backgroundColor = "rgba(255, 255, 255, 0.05)";
-//       e.currentTarget.style.color = "rgba(255, 255, 255, 0.6)";
-//       e.currentTarget.style.borderColor = "rgba(255, 255, 255, 0.1)";
-//     }}
-//   >
-//     {icon}
-//   </a>
-// );
-
 // export default Footer;
+
+
+
 
 import React from "react";
 import { Link } from "react-router-dom";
@@ -536,265 +192,189 @@ import {
   Twitter,
   Instagram,
   Linkedin,
-  Youtube,
-  Send,
+  MapPin,
+  Phone,
+  Mail,
+  ChevronRight,
 } from "lucide-react";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
+  const navigationLinks = [
+    { text: "Home", to: "/" },
+    { text: "About Us", to: "/about" },
+    { text: "Member Login", to: "/login" },
+    { text: "Success Stories", to: "/" },
+    { text: "Membership Plans", to: "/pricing" },
+    { text: "Contact Us", to: "/contact" },
+  ];
+
+  const legalLinks = [
+    { text: "Refund Policy", to: "/refund-policy" },
+    { text: "Disclaimer", to: "/disclaimer" },
+    { text: "Privacy Policy", to: "/privacy" },
+    { text: "Terms & Conditions", to: "/terms" },
+    { text: "Safety Protocol", to: "/be-safe-online" },
+  ];
+
+  const socialIcons = [
+    { icon: <Facebook size={18} />, link: "#" },
+    { icon: <Twitter size={18} />, link: "#" },
+    { icon: <Instagram size={18} />, link: "#" },
+    { icon: <Linkedin size={18} />, link: "#" },
+  ];
+
   return (
     <footer
-      className="w-full pt-20 pb-10"
+      className="w-full pt-20 pb-10 text-white"
       style={{
         background: `linear-gradient(135deg, var(--color-secondary) 0%, var(--color-primary) 100%)`,
         fontFamily: "var(--ff-primary)",
       }}
     >
-      <div className="max-w-7xl mx-auto px-6 md:px-10 lg:px-20">
-        {/* Top Grid Section */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-20">
-          {/* Column 1: Brand Identity */}
+      {/* Applied px-6 as requested. 
+         max-w-7xl keeps content centered on ultra-wide screens.
+      */}
+      <div className="max-w-7xl mx-auto px-6">
+        
+        {/* Main Grid: Responsive column counts */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 mb-20">
+          
+          {/* Column 1: Brand (Naturally Left) */}
           <div className="space-y-8">
             <div className="flex items-center gap-3">
               <Link
                 to="/"
-                className="logo-container lub-dub-animation w-14 h-14 overflow-hidden rotate-3 border-2 shadow-lg cursor-pointer transition-all duration-300"
-                style={{
-                  borderRadius: "var(--radius-md)",
-                  borderColor: "rgba(255,255,255,0.1)",
-                  position: "relative",
-                }}
+                className="relative w-14 h-14 overflow-hidden rotate-3 border-2 border-white/10 shadow-lg rounded-xl transition-transform hover:rotate-0 duration-300"
               >
                 <img
                   src="/logoo.png"
-                  alt="LoveLink Logo"
+                  alt="Logo"
                   className="w-full h-full object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/20 to-transparent -translate-x-full hover:animate-[shimmer_2s_infinite] pointer-events-none" />
+                <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/20 to-transparent -translate-x-full hover:animate-[shimmer_2s_infinite]" />
               </Link>
-              <h2
-                className="font-black uppercase tracking-tighter text-white"
-                style={{ fontSize: "var(--fs-h4)" }}
-              >
+              <h2 className="font-black uppercase tracking-tighter text-2xl">
                 Love<span style={{ color: "var(--color-base)" }}>Link</span>
               </h2>
             </div>
-
-            <p
-              className="leading-relaxed opacity-80"
-              style={{ fontSize: "var(--fs-small)", color: "var(--bg-soft)" }}
-            >
-              Connecting hearts through LoveLink. Discover meaningful
-              relationships and your perfect match within our trusted global
+            <p className="leading-relaxed opacity-80 text-sm max-w-xs">
+              Connecting families through LoveLink. Discover meaningful,
+              lifelong relationships within our trusted global matrimonial
               community.
             </p>
-
             <div className="flex items-center gap-4">
-              <SocialIcon icon={<Facebook size={18} />} link="#" />
-              <SocialIcon icon={<Twitter size={18} />} link="#" />
-              <SocialIcon icon={<Instagram size={18} />} link="#" />
-              <SocialIcon icon={<Linkedin size={18} />} link="#" />
+              {socialIcons.map((soc, i) => (
+                <a
+                  key={i}
+                  href={soc.link}
+                  className="w-10 h-10 border border-white/10 flex items-center justify-center bg-white/5 rounded-lg text-white/60 hover:bg-[var(--color-accent)] hover:text-white hover:border-transparent transition-all"
+                >
+                  {soc.icon}
+                </a>
+              ))}
             </div>
           </div>
 
           {/* Column 2: Navigation */}
-          <div className="lg:ml-10">
-            <h3
-              className="mb-8 uppercase tracking-[0.2em] text-white"
-              style={{
-                fontSize: "var(--fs-caption)",
-                fontWeight: "var(--fw-bold)",
-              }}
-            >
-              Navigation
-            </h3>
-            <ul className="space-y-4">
-              <FooterLink text="Our Philosophy" to="/about" />
-              <FooterLink text="Success Stories" to="/" />
-              <FooterLink text="Membership Plans" to="/pricing" />
-              <FooterLink text="Safety Protocol" to="/privacy" />
-            </ul>
+          <div className="lg:flex lg:justify-center">
+            <div className="w-full lg:w-fit">
+              <h3 className="mb-8 uppercase tracking-[0.2em] font-bold text-xs border-b border-white/10 pb-2 w-fit">
+                Navigation
+              </h3>
+              <ul className="space-y-4">
+                {navigationLinks.map((link, i) => (
+                  <li key={i}>
+                    <Link
+                      to={link.to}
+                      className="flex items-center gap-2 text-white/60 hover:text-white hover:translate-x-2 transition-all duration-300 text-sm group"
+                    >
+                      <ChevronRight
+                        size={12}
+                        className="opacity-0 group-hover:opacity-100 text-[var(--color-accent)] transition-all"
+                      />
+                      {link.text}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
 
-          {/* Column 3: Discovery */}
-          <div>
-            <h3
-              className="mb-8 uppercase tracking-[0.2em] text-white"
-              style={{
-                fontSize: "var(--fs-caption)",
-                fontWeight: "var(--fw-bold)",
-              }}
-            >
-              Discovery
-            </h3>
-            <ul className="space-y-4">
-              <FooterLink text="New Members" to="/login" />
-              <FooterLink text="Verified Profiles" to="/profile" />
-              <FooterLink text="Match Feed" to="/connection" />
-              <FooterLink text="Advanced Search" to="/MatrimonyFilter" />
-            </ul>
+          {/* Column 3: Important Links */}
+          <div className="lg:flex lg:justify-center">
+            <div className="w-full lg:w-fit">
+              <h3 className="mb-8 uppercase tracking-[0.2em] font-bold text-xs border-b border-white/10 pb-2 w-fit">
+                Important Links
+              </h3>
+              <ul className="space-y-4">
+                {legalLinks.map((link, i) => (
+                  <li key={i}>
+                    <Link
+                      to={link.to}
+                      className="flex items-center gap-2 text-white/60 hover:text-white hover:translate-x-2 transition-all duration-300 text-sm group"
+                    >
+                      <ChevronRight
+                        size={12}
+                        className="opacity-0 group-hover:opacity-100 text-[var(--color-accent)] transition-all"
+                      />
+                      {link.text}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
 
-          {/* Column 4: Newsletter */}
-          <div
-            className="p-6"
-            style={{
-              backgroundColor: "rgba(255,255,255,0.03)",
-              borderRadius: "var(--radius-lg)",
-            }}
-          >
-            <h3
-              className="mb-4 text-white"
-              style={{ fontSize: "var(--fs-h6)", fontWeight: "var(--fw-bold)" }}
-            >
-              Stay in the Loop
-            </h3>
-            <p
-              className="mb-6 opacity-60"
-              style={{ fontSize: "var(--fs-caption)", color: "var(--bg-soft)" }}
-            >
-              Get dating tips and success stories delivered weekly.
-            </p>
-
-            <div className="relative group">
-              <input
-                type="email"
-                placeholder="Email address"
-                className="w-full px-5 py-4 border bg-white/5 text-white focus:outline-none transition-all"
-                style={{
-                  borderRadius: "var(--radius-md)",
-                  borderColor: "rgba(255,255,255,0.1)",
-                  fontSize: "var(--fs-caption)",
-                }}
-              />
-              <button
-                className="absolute right-2 top-2 p-2.5 text-white transition-all cursor-pointer flex items-center justify-center shadow-lg hover:brightness-110 active:scale-95"
-                style={{
-                  backgroundColor: "var(--color-accent)",
-                  borderRadius: "var(--radius-sm)",
-                }}
-              >
-                <Send size={16} />
-              </button>
+          {/* Column 4: Stay in Touch (Aligned Right on Large Screens) */}
+          <div className="lg:flex lg:justify-end">
+            <div className="w-full lg:w-fit space-y-6">
+              <h3 className="mb-8 uppercase tracking-[0.2em] font-bold text-xs border-b border-white/10 pb-2 w-fit">
+                Stay in Touch
+              </h3>
+              <div className="space-y-5 text-white/80 text-sm">
+                <div className="flex gap-3">
+                  <MapPin size={20} className="text-[var(--color-accent)] shrink-0" />
+                  <p className="leading-snug text-white/70">
+                    LoveLink Global HQ, <br />
+                    Ballabhgarh, Faridabad, <br />
+                     Haryana - 121004
+                  </p>
+                </div>
+                <div className="flex items-center gap-3 text-white/70">
+                  <Phone size={18} className="text-[var(--color-accent)]" />
+                  +91-9900038442
+                </div>
+                <div className="flex items-center gap-3 text-white/70">
+                  <Mail size={18} className="text-[var(--color-accent)]" />
+                  info@lovelink.org
+                </div>
+              </div>
             </div>
           </div>
         </div>
 
-        {/* Bottom Bar */}
-        <div
-          className="pt-10 border-t flex flex-col md:flex-row justify-between items-center gap-8"
-          style={{ borderColor: "rgba(255,255,255,0.1)" }}
-        >
-          <div className="flex items-center gap-5">
-            <div
-              className="w-12 h-12 rounded-full border-2 overflow-hidden shadow-inner"
-              style={{ borderColor: "var(--color-accent)" }}
-            >
-              <img
-                src="/logoo.png"
-                alt="LoveLink Creator"
-                className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500"
-              />
-            </div>
-            <div className="flex flex-col">
-              <div
-                className="uppercase tracking-widest font-black"
-                style={{
-                  fontSize: "var(--fs-caption)",
-                  color: "rgba(255,255,255,0.6)",
-                }}
-              >
-                LoveLink Global
-              </div>
-              <div
-                className="font-medium opacity-30"
-                style={{ fontSize: "var(--fs-caption)", color: "white" }}
-              >
-                © {currentYear} All rights reserved.
-              </div>
-            </div>
+        {/* BOTTOM BAR: "Left and Right" Logic
+           - md:flex-row turns it into a row on tablet/desktop
+           - justify-between pushes content to the far left and far right
+        */}
+        <div className="pt-10 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-6">
+          <div className="flex flex-col items-center md:items-start">
+            <span className="uppercase tracking-[0.3em] font-blacktext-white/100  text-[10px]">
+              LoveLink Global
+            </span>
           </div>
-
-          <div
-            className="flex items-center gap-8 uppercase tracking-widest opacity-40"
-            style={{
-              fontSize: "var(--fs-caption)",
-              fontWeight: "var(--fw-bold)",
-              color: "white",
-            }}
-          >
-            <Link
-              to="/privacy"
-              className="hover:text-[var(--color-accent)] transition-colors"
-            >
-              Privacy
-            </Link>
-            <Link
-              to="/terms"
-              className="hover:text-[var(--color-accent)] transition-colors"
-            >
-              Terms
-            </Link>
-            <a
-              href="https://www.youtube.com/@LoveLink-x9l"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="ml-4 cursor-pointer hover:text-[#FF0000] transition-colors flex items-center"
-            >
-              <Youtube size={20} />
-            </a>
+          
+          <div className="flex flex-col items-center md:items-end">
+            <span className="text-white/100 text-xs font-medium">
+              © {currentYear} All rights reserved.
+            </span>
           </div>
         </div>
       </div>
     </footer>
   );
 };
-
-/* --- Helpers --- */
-
-const FooterLink = ({ text, to }) => (
-  <li>
-    <Link
-      to={to}
-      className="transition-all duration-300 hover:translate-x-2 block flex items-center gap-2 group"
-      style={{
-        fontSize: "var(--fs-small)",
-        color: "rgba(255,255,255,0.6)",
-        fontWeight: "var(--fw-medium)",
-      }}
-    >
-      <span
-        className="w-0 h-[1px] group-hover:w-3 transition-all duration-300"
-        style={{ backgroundColor: "var(--color-accent)" }}
-      ></span>
-      <span className="group-hover:text-white">{text}</span>
-    </Link>
-  </li>
-);
-
-const SocialIcon = ({ icon, link }) => (
-  <a
-    href={link}
-    className="w-10 h-10 border transition-all flex items-center justify-center bg-white/5 cursor-pointer"
-    style={{
-      borderRadius: "var(--radius-sm)",
-      borderColor: "rgba(255,255,255,0.1)",
-      color: "rgba(255,255,255,0.6)",
-    }}
-    onMouseEnter={(e) => {
-      e.currentTarget.style.backgroundColor = "var(--color-accent)";
-      e.currentTarget.style.color = "#fff";
-      e.currentTarget.style.borderColor = "var(--color-accent)";
-    }}
-    onMouseLeave={(e) => {
-      e.currentTarget.style.backgroundColor = "rgba(255, 255, 255, 0.05)";
-      e.currentTarget.style.color = "rgba(255, 255, 255, 0.6)";
-      e.currentTarget.style.borderColor = "rgba(255, 255, 255, 0.1)";
-    }}
-  >
-    {icon}
-  </a>
-);
 
 export default Footer;
