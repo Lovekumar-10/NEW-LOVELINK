@@ -351,10 +351,11 @@ export const AuthProvider = ({ children }) => {
   };
 
   // ------------------ REGISTER ------------------
-  const register = async (name, email, password) => {
+  const register = async (name, email, phone, password) => {
     const userCredential = await createUserWithEmailAndPassword(
       auth,
       email,
+      phone,
       password,
     );
     const newUser = userCredential.user;
