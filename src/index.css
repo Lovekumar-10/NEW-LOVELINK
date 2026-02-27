@@ -190,27 +190,6 @@ main {
 
 
 
-
-
-
-
-/* Hide the Google Translate bar at the top */
-.goog-te-banner-frame.skiptranslate {
-    display: none !important;
-}
-body {
-    top: 0px !important;
-}
-/* Hide the "Powered by Google" text if you want it super clean */
-.goog-logo-link {
-    display: none !important;
-}
-.goog-te-gadget {
-    color: transparent !important;
-}
-
-
-
 /* 
 form fill for story post  */
 
@@ -220,4 +199,15 @@ form fill for story post  */
            focus:ring-2 focus:ring-[var(--color-primary)] focus:border-transparent 
            outline-none transition-all text-[var(--text-primary)] placeholder:text-[var(--text-light)];
   }
+}
+
+
+
+
+
+.goog-te-banner-frame.skiptranslate {
+  display: none !important;
+}
+body {
+  top: 0px !important;
 }

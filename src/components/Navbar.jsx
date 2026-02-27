@@ -419,6 +419,8 @@ import React, { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import TopSafetyMarquee from "./Disclaimer/TopSafetyMarquee";
 import { useAuth } from "../context/AuthContext";
+import GoogleTranslate from "./GoogleTranslate";
+
 // Added Globe icon
 import {
   Menu,
@@ -493,7 +495,10 @@ const Navbar = () => {
               {link.name}
             </Link>
           ))}
+           <GoogleTranslate />
         </div>
+
+       
 
         {/* Desktop Right Side */}
         <div className="hidden md:flex items-center gap-4">
