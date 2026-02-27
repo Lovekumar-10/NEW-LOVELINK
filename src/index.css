@@ -208,3 +208,16 @@ body {
 .goog-te-gadget {
     color: transparent !important;
 }
+
+
+
+/* 
+form fill for story post  */
+
+@layer components {
+  .form-input-custom {
+    @apply w-full px-4 py-3 bg-white border border-[var(--border)] rounded-[var(--radius-sm)] 
+           focus:ring-2 focus:ring-[var(--color-primary)] focus:border-transparent 
+           outline-none transition-all text-[var(--text-primary)] placeholder:text-[var(--text-light)];
+  }
+}

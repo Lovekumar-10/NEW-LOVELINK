@@ -13,14 +13,16 @@ import TermsAndConditions from "./pages/General/TermsAndConditions";
 import RefundPolicy from "./pages/General/RefundPolicy";
 import Disclaimer from "./pages/General/Disclaimer";
 import SafetyProtocal from "./pages/General/SafetyProtocal";
-import MatrimonyFilter from "./components/connection/MatrimonyFilter"
-import Story from "./pages/General/SuccessStory";
+import MatrimonyFilter from "./components/connection/MatrimonyFilter";
+
+import StoryViewPage from "./pages/General/StoryViewPage";
+import SuccessStory from "./pages/General/SuccessStory";
+import PostSuccessStory from "./pages/General/PostSuccessStory";
 
 // Profile Nested
 import ProfileLayout from "./pages/private/ProfileLayout";
 import ProfilePreview from "./components/ProfileStruc/Profile/ProfilePreview";
 import ProfileEditForm from "./components/ProfileStruc/Profile/ProfileEditForm";
-
 
 // Layouts
 import PublicLayout from "./components/layouts/PublicLayout";
@@ -30,9 +32,6 @@ import ProtectedRoute from "./components/ProtectedRoute";
 import ScrollToTop from "./components/ScrollToTop";
 
 function App() {
-
-
-  
   return (
     <BrowserRouter>
       <ScrollToTop />
@@ -44,16 +43,19 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/pricing" element={<Pricing />} />
-          <Route path="/success stories" element={<Story />} />
+
+          <Route path="/successStories" element={<SuccessStory />} />
+          <Route path="/successStories/postSuccessStory" element={<PostSuccessStory />} />
+          <Route path="/successStories/view/:id" element={<StoryViewPage />} />
+
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/privacy" element={<PrivacyPolicy />} />
-          <Route path="/terms" element={<TermsAndConditions/>} />
+          <Route path="/terms" element={<TermsAndConditions />} />
           <Route path="/MatrimonyFilter" element={<MatrimonyFilter />} />
           <Route path="/refund-policy" element={<RefundPolicy />} />
           <Route path="/be-safe-online" element={<SafetyProtocal />} />
           <Route path="/disclaimer" element={<Disclaimer />} />
-        
 
           {/* Private Pages */}
           <Route
@@ -74,7 +76,6 @@ function App() {
             }
           />
 
-
           {/* Profile Nested Routes */}
           <Route
             path="/profile"
@@ -84,7 +85,6 @@ function App() {
               </ProtectedRoute>
             }
           >
-  
             <Route path=":id?" element={<ProfilePreview />} />
 
             {/* Edit Profile (Remains the same) */}

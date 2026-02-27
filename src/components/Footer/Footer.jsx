@@ -205,7 +205,7 @@ const Footer = () => {
     { text: "Home", to: "/" },
     { text: "About Us", to: "/about" },
     { text: "Member Login", to: "/login" },
-    { text: "Success Stories", to: "/success stories/" },
+    { text: "Success Stories", to: "/successStories" },
     { text: "Membership Plans", to: "/pricing" },
     { text: "Contact Us", to: "/contact" },
   ];

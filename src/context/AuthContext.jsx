@@ -1,5 +1,3 @@
-
-
 // import { createContext, useContext, useEffect, useState } from "react";
 // import {
 //   createUserWithEmailAndPassword,
@@ -257,6 +255,10 @@
 
 
 
+
+
+
+
 import { createContext, useContext, useEffect, useState } from "react";
 import {
   createUserWithEmailAndPassword,
@@ -264,6 +266,13 @@ import {
   signOut,
   onAuthStateChanged,
 } from "firebase/auth";
+
+// success Stoires DAta
+
+// import { collection, addDoc } from "firebase/firestore";
+import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
+import { storage } from "../firebase";
+
 import { auth, db } from "../firebase";
 import {
   doc,
@@ -273,6 +282,7 @@ import {
   serverTimestamp,
   arrayUnion,
   arrayRemove,
+  addDoc,
 } from "firebase/firestore";
 import { collection, getDocs, query, limit, orderBy } from "firebase/firestore";
 const AuthContext = createContext();
@@ -282,6 +292,63 @@ export const AuthProvider = ({ children }) => {
   const [userData, setUserData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [hasPaid, setHasPaid] = useState(false);
+
+  //-------------Successs full sotries post -------------------------//
+  const postSuccessStory = async (formData, imageFiles) => {
+    if (!user) return { success: false, error: "Login required" };
+
+    try {
+      const imageUrls = [];
+
+      // 1️⃣ Upload Images to Storage
+      for (let fileObj of imageFiles) {
+        const file = fileObj.file;
+
+        const storageRef = ref(
+          storage,
+          `successStories/${user.uid}/${Date.now()}-${file.name}`,
+        );
+
+        await uploadBytes(storageRef, file);
+
+        const downloadURL = await getDownloadURL(storageRef);
+
+        imageUrls.push(downloadURL);
+      }
+
+      // Save Story Data in Firestore
+      await addDoc(collection(db, "successStories"), {
+        ...formData,
+        images: imageUrls,
+        userId: user.uid,
+        createdAt: serverTimestamp(),
+      });
+
+      return { success: true };
+    } catch (error) {
+      console.error("Post Story Error:", error);
+      return { success: false, error: error.message };
+    }
+  };
+
+  //------------- Success Stories FETCH ------------------------//
+  const fetchSuccessStories = (callback) => {
+    const q = query(
+      collection(db, "successStories"),
+      orderBy("createdAt", "desc"),
+    );
+
+    // Real-time listener
+    const unsubscribe = onSnapshot(q, (snapshot) => {
+      const stories = snapshot.docs.map((doc) => ({
+        id: doc.id,
+        ...doc.data(),
+      }));
+      callback(stories);
+    });
+
+    return unsubscribe; // if you want to stop listening
+  };
 
   // ------------------ REGISTER ------------------
   const register = async (name, email, password) => {
@@ -500,6 +567,8 @@ export const AuthProvider = ({ children }) => {
         getAllProfiles,
         hasPaid,
         setHasPaid,
+        postSuccessStory,
+        fetchSuccessStories, // <-- Add this here
       }}
     >
       {children}
