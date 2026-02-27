@@ -417,6 +417,7 @@
 
 import React, { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import TopSafetyMarquee from "./Disclaimer/TopSafetyMarquee";
 import { useAuth } from "../context/AuthContext";
 // Added Globe icon
 import {
@@ -468,10 +469,13 @@ const Navbar = () => {
       : "text-[var(--text-primary)] hover:text-[var(--color-primary)] hover:bg-[var(--color-primary-2)]";
 
   return (
+    <>
+    
     <nav
       className="fixed w-full top-0 z-50 border-b bg-[var(--bg-card)] border-[var(--border)] shadow-[var(--shadow-card)]"
       style={{ fontFamily: "var(--ff-primary)" }}
     >
+      <TopSafetyMarquee/>
       <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
         {/* Logo */}
         <Link to="/" className="flex items-center">
@@ -604,7 +608,7 @@ const Navbar = () => {
             animate={{ x: 0 }}
             exit={{ x: "100%" }}
             transition={{ type: "spring", damping: 25, stiffness: 200 }}
-            className="md:hidden fixed inset-0 top-16 bg-[var(--bg-main)] z-40 flex flex-col p-6"
+            className="md:hidden fixed inset-0 top-25 bg-[var(--bg-main)] z-40 flex flex-col p-6"
           >
             <div className="flex flex-col gap-3">
               <p className="text-[var(--text-light)] text-xs uppercase tracking-widest font-bold mb-2">
@@ -725,6 +729,7 @@ const Navbar = () => {
         )}
       </AnimatePresence>
     </nav>
+    </>
   );
 };
 
