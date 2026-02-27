@@ -418,8 +418,10 @@
 import React, { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import TopSafetyMarquee from "./Disclaimer/TopSafetyMarquee";
-import { useAuth } from "../context/AuthContext";
 import GoogleTranslate from "./GoogleTranslate";
+import { useAuth } from "../context/AuthContext";
+
+
 
 // Added Globe icon
 import {
@@ -429,27 +431,18 @@ import {
   LogOut,
   User,
   LayoutDashboard,
-  Globe,
-  ChevronDown,
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
-  const [langDropdownOpen, setLangDropdownOpen] = useState(false); // New state for language
-  const [currentLang, setCurrentLang] = useState("EN"); // Default language
+
 
   const { user, logout } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
 
-  const languages = [
-    { code: "EN", name: "English" },
-    { code: "ES", name: "Español" },
-    { code: "HI", name: "हिन्दी" },
-    { code: "FR", name: "Français" },
-  ];
 
   const links = [
     { name: "Home", path: "/" },
@@ -471,8 +464,7 @@ const Navbar = () => {
       : "text-[var(--text-primary)] hover:text-[var(--color-primary)] hover:bg-[var(--color-primary-2)]";
 
   return (
-    <>
-    
+    <>   
     <nav
       className="fixed w-full top-0 z-50 border-b bg-[var(--bg-card)] border-[var(--border)] shadow-[var(--shadow-card)]"
       style={{ fontFamily: "var(--ff-primary)" }}
@@ -495,53 +487,16 @@ const Navbar = () => {
               {link.name}
             </Link>
           ))}
-           <GoogleTranslate />
+        
         </div>
 
        
 
         {/* Desktop Right Side */}
         <div className="hidden md:flex items-center gap-4">
-          {/* --- LANGUAGE DROP-DOWN START --- */}
-          <div className="relative">
-            <button
-              onClick={() => setLangDropdownOpen(!langDropdownOpen)}
-              className="flex items-center gap-1 px-3 py-2 text-[var(--text-primary)] hover:bg-[var(--bg-soft)] rounded-[var(--radius-sm)] transition-all"
-            >
-              <Globe size={18} className="text-[var(--color-primary)]" />
-              <span className="text-sm font-bold">{currentLang}</span>
-              <ChevronDown
-                size={14}
-                className={`transition-transform ${langDropdownOpen ? "rotate-180" : ""}`}
-              />
-            </button>
+          {/* --- LANGUAGE SUPPORT --- */}
+          <GoogleTranslate/>
 
-            <AnimatePresence>
-              {langDropdownOpen && (
-                <motion.div
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: 10 }}
-                  className="absolute right-0 mt-2 w-32 bg-white border border-[var(--border)] shadow-xl rounded-[var(--radius-md)] overflow-hidden z-50"
-                >
-                  {languages.map((lang) => (
-                    <button
-                      key={lang.code}
-                      onClick={() => {
-                        setCurrentLang(lang.code);
-                        setLangDropdownOpen(false);
-                        // Add your translation logic here (e.g., i18n.changeLanguage(lang.code))
-                      }}
-                      className="w-full text-left px-4 py-2 text-sm hover:bg-[var(--bg-soft)] text-[var(--text-primary)] transition-colors"
-                    >
-                      {lang.name}
-                    </button>
-                  ))}
-                </motion.div>
-              )}
-            </AnimatePresence>
-          </div>
-          {/* --- LANGUAGE DROP-DOWN END --- */}
 
           {!user ? (
             <Link
@@ -632,53 +587,7 @@ const Navbar = () => {
 
               {/* Mobile Language Selector */}
               {/* Mobile Language Selector (Dropdown Style) */}
-              <div className="mt-4 border-t border-[var(--border)] pt-4">
-                <p className="text-[var(--text-light)] text-xs uppercase tracking-widest font-bold mb-2">
-                  Language
-                </p>
-                <div className="relative">
-                  <button
-                    onClick={() => setLangDropdownOpen(!langDropdownOpen)}
-                    className="w-full flex items-center justify-between py-4 px-5 bg-white border border-[var(--border)] rounded-[var(--radius-md)] text-[var(--fs-h6)] font-[var(--fw-semibold)]"
-                  >
-                    <div className="flex items-center gap-3">
-                      <Globe
-                        size={20}
-                        className="text-[var(--color-primary)]"
-                      />
-                      {languages.find((l) => l.code === currentLang)?.name}
-                    </div>
-                    <ChevronDown
-                      size={18}
-                      className={`transition-transform ${langDropdownOpen ? "rotate-180" : ""}`}
-                    />
-                  </button>
-
-                  <AnimatePresence>
-                    {langDropdownOpen && (
-                      <motion.div
-                        initial={{ opacity: 0, height: 0 }}
-                        animate={{ opacity: 1, height: "auto" }}
-                        exit={{ opacity: 0, height: 0 }}
-                        className="overflow-hidden bg-[var(--bg-soft)] rounded-b-[var(--radius-md)] border-x border-b border-[var(--border)]"
-                      >
-                        {languages.map((lang) => (
-                          <button
-                            key={lang.code}
-                            onClick={() => {
-                              setCurrentLang(lang.code);
-                              setLangDropdownOpen(false);
-                            }}
-                            className="w-full text-left px-12 py-3 hover:bg-[var(--color-primary-2)] text-[var(--text-primary)] transition-colors border-t border-[var(--border)]"
-                          >
-                            {lang.name}
-                          </button>
-                        ))}
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                </div>
-              </div>
+                  <GoogleTranslate/>
             </div>
 
             <div className="mt-auto pb-10">

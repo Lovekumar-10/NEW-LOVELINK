@@ -1011,6 +1011,7 @@ import { Search, Heart, Sparkles, Flame, Zap } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import HeroSectionSkeleton from "../Skeleton/HeroSectionSkeleton"; // adjust path
 
+
 const HeroSection = () => {
   const navigate = useNavigate();
   const [lookingFor, setLookingFor] = useState("Bride");
@@ -1042,7 +1043,7 @@ const HeroSection = () => {
 
   if (loading) return <HeroSectionSkeleton />;
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden bg-[var(--bg-main)] text-[var(--text-primary)]">
+    <section className="relative pt-5 min-h-screen flex items-center overflow-hidden bg-[var(--bg-main)] text-[var(--text-primary)]">
       {/* --- THE MAGIC SIDE (Background Image & Hearts) --- */}
       <div className="absolute inset-0 z-0 overflow-hidden">
         {/* Background Image: Visible on all screens now with better opacity for your theme */}
