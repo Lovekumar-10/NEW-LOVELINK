@@ -1003,6 +1003,8 @@
 
 
 
+
+
 import React, { useState } from "react";
 import { useEffect } from "react";
 import { motion } from "framer-motion";
@@ -1050,7 +1052,8 @@ const HeroSection = () => {
         <div
           className="absolute inset-0 bg-cover bg-center transition-transform duration-[10s] opacity-[0.15] lg:opacity-40"
           style={{
-            backgroundImage: `url('https://images.unsplash.com/photo-1583939003579-730e3918a45a?q=80&w=1974&auto=format&fit=crop')`,
+            // backgroundImage: `url('https://images.unsplash.com/photo-1583939003579-730e3918a45a?q=80&w=1974&auto=format&fit=crop')`,
+            backgroundImage: `url('./HeroBG.png')`,
           }}
         />
 
@@ -1141,8 +1144,8 @@ const HeroSection = () => {
                   value={lookingFor}
                   onChange={(e) => setLookingFor(e.target.value)}
                 >
-                  <option value="Bride">My Queen</option>
-                  <option value="Groom">My King</option>
+                  <option value="Bride">My Life Partner</option>
+                  <option value="Groom">My Life Partner</option>
                 </select>
               </div>
 

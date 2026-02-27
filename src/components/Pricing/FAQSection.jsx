@@ -88,8 +88,8 @@ const FAQSection = () => {
     answer: "For monthly plans, you are billed on the same day each month based on your initial signup date. Yearly plans are billed upfront in full. If you upgrade your plan mid-cycle, our system will automatically calculate a pro-rated amount, applying the remaining value of your current plan toward the new one." 
   },
   { 
-    question: "Can I get a refund if I am not satisfied?", 
-    answer: "We offer a 14-day money-back guarantee for first-time subscribers. If you find the service isn't a fit for your needs, you can request a full refund within the first two weeks of your purchase. Please note that refunds are typically processed within 5-7 business days depending on your banking institution." 
+    question: "No Money-Back Guarantee ?", 
+    answer: "Yes, All membership fees are non-refundable once the plan is activated." 
   },
   { 
     question: "How can I download my invoices for tax purposes?", 

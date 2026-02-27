@@ -165,12 +165,17 @@
 
 
 
+
+
+
+
+
 // src/components/Auth/Login.jsx
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { Eye, EyeOff, Mail, Lock } from "lucide-react";
-import { FcGoogle } from "react-icons/fc"; 
-import { FaFacebook } from "react-icons/fa"; 
+import { FcGoogle } from "react-icons/fc";
+import { FaFacebook } from "react-icons/fa";
 import { useAuth } from "../../context/AuthContext";
 import { useNavigate } from "react-router-dom";
 
@@ -180,6 +185,7 @@ const Login = () => {
   const [password, setPassword] = useState("");
 
   const { login } = useAuth();
+  // const { login, userData } = useAuth();
   const navigate = useNavigate();
 
   const handleLogin = async (e) => {
@@ -187,6 +193,16 @@ const Login = () => {
     try {
       await login(email, password);
       navigate("/connection");
+      // await login(email, password);
+
+      // // Thoda wait karte hain taaki userData load ho jaye
+      // setTimeout(() => {
+      //   if (!userData?.profileCompleted) {
+      //     navigate("/complete-profile");
+      //   } else {
+      //     navigate("/connection");
+      //   }
+      // }, 500);
     } catch (error) {
       alert(error.message);
     }
@@ -278,14 +294,14 @@ const Login = () => {
           <div className="absolute inset-0 flex items-center">
             <span className="w-full border-t border-[var(--border)]"></span>
           </div>
-          <div className="relative flex justify-center text-[var(--fs-caption)] uppercase">
+          {/* <div className="relative flex justify-center text-[var(--fs-caption)] uppercase">
             <span className="bg-[var(--bg-card)] px-2 text-[var(--text-light)] font-[var(--fw-bold)]">
               Or continue with
             </span>
-          </div>
+          </div> */}
         </div>
 
-        {/* Social Buttons */}
+        {/* Social Buttons
         <div className="grid grid-cols-2 gap-2">
           <button className="flex items-center justify-center gap-2 py-2 border border-[var(--border)] rounded-[var(--radius-sm)] text-[var(--fs-small)] text-[var(--text-primary)] hover:bg-[var(--bg-soft)] transition-colors">
             <FcGoogle size={18} /> Google
@@ -293,7 +309,7 @@ const Login = () => {
           <button className="flex items-center justify-center gap-2 py-2 border border-[var(--border)] rounded-[var(--radius-sm)] text-[var(--fs-small)] text-[var(--text-primary)] hover:bg-[var(--bg-soft)] transition-colors">
             <FaFacebook size={18} color="#1877F2" /> Facebook
           </button>
-        </div>
+        </div> */}
 
         {/* Footer Link */}
         <p className="mt-5 text-[var(--fs-small)] text-center text-[var(--text-secondary)]">

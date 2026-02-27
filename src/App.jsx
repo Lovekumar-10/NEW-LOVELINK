@@ -15,12 +15,13 @@ import Disclaimer from "./pages/General/Disclaimer";
 import SafetyProtocal from "./pages/General/SafetyProtocal";
 import MatrimonyFilter from "./components/connection/MatrimonyFilter";
 
+import CompleteProfile from "./pages/private/CompleteProfile";
+
 import StoryViewPage from "./pages/General/StoryViewPage";
 import SuccessStory from "./pages/General/SuccessStory";
 import PostSuccessStory from "./pages/General/PostSuccessStory";
 
-
-// pop 
+// pop
 import AlertDisclaimer from "./components/Disclaimer/AlertDisclaimer";
 
 // Profile Nested
@@ -38,7 +39,7 @@ import ScrollToTop from "./components/ScrollToTop";
 function App() {
   return (
     <BrowserRouter>
-    <AlertDisclaimer/>
+      <AlertDisclaimer />
       <ScrollToTop />
 
       <Routes>
@@ -50,7 +51,10 @@ function App() {
           <Route path="/pricing" element={<Pricing />} />
 
           <Route path="/successStories" element={<SuccessStory />} />
-          <Route path="/successStories/postSuccessStory" element={<PostSuccessStory />} />
+          <Route
+            path="/successStories/postSuccessStory"
+            element={<PostSuccessStory />}
+          />
           <Route path="/successStories/view/:id" element={<StoryViewPage />} />
 
           <Route path="/login" element={<Login />} />
@@ -77,6 +81,17 @@ function App() {
             element={
               <ProtectedRoute>
                 <Chat />
+              </ProtectedRoute>
+            }
+          />
+
+          {/* // this is just created ok  */}
+
+          <Route
+            path="/complete-profile"
+            element={
+              <ProtectedRoute>
+                <CompleteProfile />
               </ProtectedRoute>
             }
           />

@@ -8,28 +8,29 @@ const Timeline = () => {
       tagline: "The Art of Selection",
       desc: "We don't just match; we curate. Access a circle of elite individuals who mirror your ambition.",
       // High-end aesthetic: Luxury Watch/Fashion
-      img: "https://images.pexels.com/photos/3014856/pexels-photo-3014856.jpeg?auto=compress&cs=tinysrgb&w=600", 
+       img: "./Curtion.jpeg", 
+     
     },
     {
       title: "Connection",
       tagline: "Beyond the Digital",
       desc: "Our interface is designed for depth. Engage in meaningful dialogue within a space built for privacy.",
       // High-end aesthetic: Champagne/Fine Dining
-      img: "https://images.pexels.com/photos/2306281/pexels-photo-2306281.jpeg?auto=compress&cs=tinysrgb&w=600", 
+      img: "./Connection.png", 
     },
     {
       title: "Chemistry",
       tagline: "The Spark of Reality",
       desc: "Transition from online fascination to real-world magic at partner luxury venues.",
       // High-end aesthetic: Evening City/Romantic
-      img: "https://images.pexels.com/photos/1024993/pexels-photo-1024993.jpeg?auto=compress&cs=tinysrgb&w=600", 
+      img: "./Chemistry.png", 
     },
     {
       title: "Commitment",
       tagline: "A Legacy of Love",
       desc: "Where fleeting moments evolve into lasting legacies. Your final destination.",
       // High-end aesthetic: Luxury Details
-      img: "https://images.pexels.com/photos/948431/pexels-photo-948431.jpeg?auto=compress&cs=tinysrgb&w=600", 
+      img: "./Comitment.jpeg", 
     }
   ];
 
@@ -59,7 +60,7 @@ const Timeline = () => {
         className="absolute bottom-0 right-0 z-0 pointer-events-none"
       >
         <img 
-          src="https://images.pexels.com/photos/1166209/pexels-photo-1166209.jpeg?auto=compress&cs=tinysrgb&w=400" 
+          src="./deco-bottom.png" 
           className="w-64 md:w-96 h-auto rounded-[var(--radius-lg)] shadow-xl "
           alt="deco-bottom"
         />
