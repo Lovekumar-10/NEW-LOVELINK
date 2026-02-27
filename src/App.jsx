@@ -19,6 +19,10 @@ import StoryViewPage from "./pages/General/StoryViewPage";
 import SuccessStory from "./pages/General/SuccessStory";
 import PostSuccessStory from "./pages/General/PostSuccessStory";
 
+
+// pop 
+import AlertDisclaimer from "./components/Disclaimer/AlertDisclaimer";
+
 // Profile Nested
 import ProfileLayout from "./pages/private/ProfileLayout";
 import ProfilePreview from "./components/ProfileStruc/Profile/ProfilePreview";
@@ -34,6 +38,7 @@ import ScrollToTop from "./components/ScrollToTop";
 function App() {
   return (
     <BrowserRouter>
+    <AlertDisclaimer/>
       <ScrollToTop />
 
       <Routes>
