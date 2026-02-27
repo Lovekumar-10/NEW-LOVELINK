@@ -51,10 +51,6 @@
 
 // export default GoogleTranslate;
 
-
-
-
-
 import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Globe, ChevronDown, Check } from "lucide-react";
@@ -72,12 +68,16 @@ const languages = [
   { name: "Kannada (ಕನ್ನಡ)", code: "kn" },
   { name: "Malayalam (മലയാളം)", code: "ml" },
   { name: "Punjabi (ਪੰਜਾਬੀ)", code: "pa" },
-  { name: "Odia (ଓଡ଼ିଆ)", code: "or" }
+  { name: "Odia (ଓଡ଼ିଆ)", code: "or" },
 ];
 
 const GoogleTranslate = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [currentLang, setCurrentLang] = useState("EN");
+
+  // Initialize state from localStorage if it exists, otherwise 'EN'
+  const [currentLang, setCurrentLang] = useState(() => {
+    return localStorage.getItem("preferredLanguage")?.toUpperCase() || "EN";
+  });
   const dropdownRef = useRef(null);
 
   useEffect(() => {
@@ -85,15 +85,24 @@ const GoogleTranslate = () => {
     window.googleTranslateElementInit = () => {
       new window.google.translate.TranslateElement(
         { pageLanguage: "en", autoDisplay: false },
-        "google_translate_hidden"
+        "google_translate_hidden",
       );
+
+      // Check if there is a saved language and apply it after init
+      const savedLang = localStorage.getItem("preferredLanguage");
+      if (savedLang && savedLang !== "en") {
+        setTimeout(() => {
+          applyTranslation(savedLang);
+        }, 10); // Small delay to ensure Google's select is ready
+      }
     };
 
     // 2. Inject Script
     if (!document.getElementById("google-translate-script")) {
       const script = document.createElement("script");
       script.id = "google-translate-script";
-      script.src = "//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";
+      script.src =
+        "//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";
       script.async = true;
       document.body.appendChild(script);
     }
@@ -107,7 +116,11 @@ const GoogleTranslate = () => {
       }
     });
 
-    observer.observe(document.documentElement, { attributes: true, childList: true, subtree: true });
+    observer.observe(document.documentElement, {
+      attributes: true,
+      childList: true,
+      subtree: true,
+    });
 
     return () => observer.disconnect();
   }, []);
@@ -157,10 +170,18 @@ const GoogleTranslate = () => {
                   onClick={() => handleTranslate(lang.code)}
                   className="w-full flex items-center justify-between cursor-pointer  px-4 py-2.5 text-[14px] font-[var(--ff-secondary)] text-[var(--text-primary)] hover:bg-[var(--color-primary-2)] hover:text-[var(--color-primary)] transition-colors text-left"
                 >
-                  <span className={currentLang === lang.code.toUpperCase() ? "font-[var(--fw-bold)]" : ""}>
+                  <span
+                    className={
+                      currentLang === lang.code.toUpperCase()
+                        ? "font-[var(--fw-bold)]"
+                        : ""
+                    }
+                  >
                     {lang.name}
                   </span>
-                  {currentLang === lang.code.toUpperCase() && <Check size={14} />}
+                  {currentLang === lang.code.toUpperCase() && (
+                    <Check size={14} />
+                  )}
                 </button>
               </li>
             ))}
@@ -168,13 +189,17 @@ const GoogleTranslate = () => {
         )}
       </AnimatePresence>
 
-      <style dangerouslySetInnerHTML={{ __html: `
+      <style
+        dangerouslySetInnerHTML={{
+          __html: `
         /* Nuclear CSS Override */
         .goog-te-banner-frame, .goog-te-banner, .skiptranslate { display: none !important; visibility: hidden !important; height: 0 !important; }
         body { top: 0 !important; position: static !important; }
         #goog-gt-tt, .goog-te-balloon-frame { display: none !important; }
         .goog-text-highlight { background: transparent !important; box-shadow: none !important; }
-      `}} />
+      `,
+        }}
+      />
     </div>
   );
 };
